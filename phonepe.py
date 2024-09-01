@@ -5,10 +5,10 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 st.set_page_config(
-        layout = "wide"
+        
         page_title="phoenpe analysis ",
         page_icon="",
-
+        layout = "wide"
     )
 
 # streamlit part
