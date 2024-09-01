@@ -4,13 +4,14 @@ from PIL import Image
 import pandas as pd
 
 st.set_page_config(
+        layout = "wide"
         page_title="phoenpe analysis ",
         page_icon="",
 
     )
 
 # streamlit part
-st.set_page_config(layout = "wide")
+# st.set_page_config(layout = "wide")
 st.title("PHONPE DATA VISUALIZATION AND EXPLORATION")
 
 with st.sidebar:
