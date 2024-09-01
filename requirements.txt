@@ -1,5 +1,5 @@
 streamlit
-streamli_option_menu
+streamlit_option_menu
 pandas
 numba
 pip
