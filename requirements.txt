@@ -1,6 +1,6 @@
 streamlit
 streamlit_option_menu
-streamlit_page_config
+streamlit_page
 pandas
 numba
 pip
