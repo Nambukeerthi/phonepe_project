@@ -7,4 +7,4 @@ st.set_page_config(
         page_icon="",
 
     )
- st.header("PHONEPE PROJECT")
+st.header("PHONEPE PROJECT")
