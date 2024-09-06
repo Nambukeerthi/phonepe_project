@@ -14,24 +14,7 @@ st.set_page_config(
 # streamlit part
 # st.set_page_config(layout = "wide")
 st.title("PHONPE DATA VISUALIZATION AND EXPLORATION")
-col1,col2 = st.columns(2)
-with col1:
-        st.subheader(" INDIA'S BEST TRANSACTION APP ")
-        st.markdown(" PhonePe is an Indian digital payments and financial technology company ")
-        st.write("**** FEATURES **** ")
-        st.write("**** credit and debit card linking **** ")
-        st.write("**** Bank Balance check **** ")
-        st.write("**** Money Storage **** ")
-        st.write("**** PIN Authorization **** ")
-        st.download_button("DOWNLOAD APP NOW","https://www.phonepe.com/app-download/")
-with col2:
-        img = Image.open("images/phonpe2.png")
-        st.image( img, use_column_width=True,channels="RGB" )
-col3,col4 = st.columns(2)
-with col3:
-         pass
-with col4:
-        pass
+
 
 with st.sidebar:
     
@@ -39,7 +22,24 @@ with st.sidebar:
     
     
 if select == "HOME":
-    pass
+            col1,col2 = st.columns(2)
+        with col1:
+                st.subheader(" INDIA'S BEST TRANSACTION APP ")
+                st.markdown(" PhonePe is an Indian digital payments and financial technology company ")
+                st.write("**** FEATURES **** ")
+                st.write("**** credit and debit card linking **** ")
+                st.write("**** Bank Balance check **** ")
+                st.write("**** Money Storage **** ")
+                st.write("**** PIN Authorization **** ")
+                st.download_button("DOWNLOAD APP NOW","https://www.phonepe.com/app-download/")
+        with col2:
+                img = Image.open("images/phonpe2.png")
+                st.image( img, use_column_width=True,channels="RGB" )
+        col3,col4 = st.columns(2)
+        with col3:
+                 pass
+        with col4:
+                pass
 
 elif select == "DATA EXPLORATION":
     
