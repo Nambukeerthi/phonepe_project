@@ -14,7 +14,11 @@ st.set_page_config(
 # streamlit part
 # st.set_page_config(layout = "wide")
 st.title("PHONPE DATA VISUALIZATION AND EXPLORATION")
-
+st.markdown(" ")
+st.markdown(" ")
+st.markdown(" ")
+img = Image.open("images/phonepe3.png")
+st.image( img,use_column_width=True,channels="RGB" )
 
 with st.sidebar:
     
