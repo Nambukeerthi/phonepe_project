@@ -19,6 +19,10 @@ st.markdown(" ")
 st.markdown(" ")
 img1 = Image.open("images/phonepe3.jpg")
 st.image( img1,use_column_width=True,channels="RGB" )
+st.markdown(" ")
+st.markdown(" ")
+st.markdown(" ")
+
 
 with st.sidebar:
     
@@ -45,7 +49,9 @@ if select == "HOME":
         st.markdown(" ")
         img2 = Image.open("images/phonepe4.jpg")
         st.image( img2,use_column_width=True,channels="RGB" )  
-        
+        st.markdown(" ")
+        st.markdown(" ")
+        st.markdown(" ")
         col3,col4 = st.columns(2)
         with col3:
                 img3 = Image.open("images/phonepe1.png")
