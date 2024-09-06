@@ -38,14 +38,30 @@ if select == "HOME":
                 st.download_button("DOWNLOAD APP NOW","https://www.phonepe.com/app-download/")
         with col2:
                 img = Image.open("images/phonepe2.png")
-                st.image( img,width=300,channels="RGB" )
+                st.image( img,width=400,channels="RGB" )
                 #st.image("https://github.com/Nambukeerthi/phonepe_project/blob/main/images/phonepe2.png")
+        st.markdown(" ")
+        st.markdown(" ")
+        st.markdown(" ")
+        img2 = Image.open("images/phonepe4.jpg")
+        st.image( img2,use_column_width=True,channels="RGB" )  
+        
         col3,col4 = st.columns(2)
         with col3:
-                 pass
+                img3 = Image.open("images/phonepe1.png")
+                st.image(img3,width=600,channels="RGB" )  
         with col4:
-                pass
-
+                #st.subheader(" INDIA'S BEST TRANSACTION APP ")
+                #st.markdown(" PhonePe is an Indian digital payments and financial technology company ")
+                st.write("****Easy Transaction**** ")
+                st.write("****One App for All your Payments**** ")
+                st.write("****Multiple Payments Method**** ")
+                st.write("****PhonePe Merchants**** ")
+                st.write("****Multiple Ways to Pay**** ")
+                st.write("****1. Direct Transfer & More**** ")
+                st.write("****2. QR Code **** ")
+                st.write("****Earn Great Rewards**** ")
+               
 elif select == "DATA EXPLORATION":
     
     tab1, tab2, tab3 = st.tabs(["Aggrecated Analysis","Map Analysis","Top Analysis"])
