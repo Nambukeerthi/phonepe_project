@@ -34,7 +34,7 @@ if select == "HOME":
                 st.download_button("DOWNLOAD APP NOW","https://www.phonepe.com/app-download/")
         with col2:
                 img = Image.open("images/phonpe2.png")
-                st.image( img, use_column_width=True,channels="RGB" )
+                st.image( img,width=600,channels="RGB" )
                 
         col3,col4 = st.columns(2)
         with col3:
