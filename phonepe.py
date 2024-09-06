@@ -33,7 +33,7 @@ if select == "HOME":
                 st.write("****PIN Authorization**** ")
                 st.download_button("DOWNLOAD APP NOW","https://www.phonepe.com/app-download/")
         with col2:
-                img = Image.open("https://github.com/Nambukeerthi/phonepe_project/blob/main/images/phonepe2.png")
+                img = Image("https://github.com/Nambukeerthi/phonepe_project/blob/main/images/phonepe2.png")
                 st.image( img,width=600,channels="RGB" )
                 #st.image("https://github.com/Nambukeerthi/phonepe_project/blob/main/images/phonepe2.png")
         col3,col4 = st.columns(2)
