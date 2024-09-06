@@ -49,7 +49,7 @@ if select == "HOME":
         col3,col4 = st.columns(2)
         with col3:
                 img3 = Image.open("images/phonepe1.png")
-                st.image(img3,width=600,channels="RGB" )  
+                st.image(img3,width=400,channels="RGB" )  
         with col4:
                 #st.subheader(" INDIA'S BEST TRANSACTION APP ")
                 #st.markdown(" PhonePe is an Indian digital payments and financial technology company ")
@@ -59,7 +59,7 @@ if select == "HOME":
                 st.write("****PhonePe Merchants**** ")
                 st.write("****Multiple Ways to Pay**** ")
                 st.write("****1. Direct Transfer & More**** ")
-                st.write("****2. QR Code **** ")
+                st.write("****2. QR Code**** ")
                 st.write("****Earn Great Rewards**** ")
                
 elif select == "DATA EXPLORATION":
