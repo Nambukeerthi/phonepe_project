@@ -22,7 +22,7 @@ with st.sidebar:
     
     
 if select == "HOME":
-            col1,col2 = st.columns(2)
+        col1,col2 = st.columns(2)
         with col1:
                 st.subheader(" INDIA'S BEST TRANSACTION APP ")
                 st.markdown(" PhonePe is an Indian digital payments and financial technology company ")
@@ -35,6 +35,7 @@ if select == "HOME":
         with col2:
                 img = Image.open("images/phonpe2.png")
                 st.image( img, use_column_width=True,channels="RGB" )
+                
         col3,col4 = st.columns(2)
         with col3:
                  pass
