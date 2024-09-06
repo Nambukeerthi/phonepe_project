@@ -26,11 +26,11 @@ if select == "HOME":
         with col1:
                 st.subheader(" INDIA'S BEST TRANSACTION APP ")
                 st.markdown(" PhonePe is an Indian digital payments and financial technology company ")
-                st.write("**** FEATURES **** ")
-                st.write("**** credit and debit card linking **** ")
-                st.write("**** Bank Balance check **** ")
-                st.write("**** Money Storage **** ")
-                st.write("**** PIN Authorization **** ")
+                st.write("****FEATURES**** ")
+                st.write("****credit and debit card linking**** ")
+                st.write("****Bank Balance check**** ")
+                st.write("****Money Storage**** ")
+                st.write("****PIN Authorization**** ")
                 st.download_button("DOWNLOAD APP NOW","https://www.phonepe.com/app-download/")
         with col2:
                 img = Image.open("images/phonpe2.png")
