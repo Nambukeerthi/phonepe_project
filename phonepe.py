@@ -17,7 +17,7 @@ st.title("PHONPE DATA VISUALIZATION AND EXPLORATION")
 st.markdown(" ")
 st.markdown(" ")
 st.markdown(" ")
-img1 = Image.open("images/phonepe3.png")
+img1 = Image.open("images/phonepe3.jpg")
 st.image( img1,use_column_width=True,channels="RGB" )
 
 with st.sidebar:
