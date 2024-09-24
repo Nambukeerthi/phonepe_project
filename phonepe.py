@@ -41,7 +41,7 @@ if select == "HOME":
                 st.write("****Bank Balance check**** ")
                 st.write("****Money Storage**** ")
                 st.write("****PIN Authorization**** ")
-                st.download_button("DOWNLOAD APP NOW","https://www.phonepe.com/app-download/")
+                st.link_button("DOWNLOAD APP NOW","https://www.phonepe.com/app-download/") 
         with col2:
                 img = Image.open("images/phonepe2.png")
                 st.image( img,width=400,channels="RGB" )
