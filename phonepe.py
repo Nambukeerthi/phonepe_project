@@ -12,7 +12,7 @@ st.set_page_config(
         layout = "wide"
     )
 def tacy_func():
-        df1 = pd.read_csv("phonpe_data/aggrecated/aggrecated_insurance.csv") 
+        df1 = pd.read_csv("phonepe_data/aggrecated/aggrecated_insurance.csv") 
         # dt1["years"].unique()
         tacy = df1[df1["Years"] == 2021 ]
         # Drop a column named 'ColumnName'
