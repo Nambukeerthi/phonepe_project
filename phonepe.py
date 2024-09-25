@@ -96,7 +96,7 @@ elif select == "DATA EXPLORATION":
         
         if method_1 == "Aggrecated insurance":
             tacyg_test = tacy_func()
-            # st.dataframe(tacyg_test, use_container_width=True) 
+            st.dataframe(tacyg_test, use_container_width=True) 
             fig_amount = px.bar(tacyg_test, x = "States", y = "Transaction_amount")
             # fig_amount.show()
             st.plotly_chart(fig_amount, theme=None, use_container_width=True)   
