@@ -92,7 +92,7 @@ elif select == "DATA EXPLORATION":
     
     with tab1:
        
-        method_1 = st.radio("select",["Aggrecated insurance","Aggrecated trasaction","Aggrecated user"])    
+        method_1 = st.radio("select",["Aggrecated insurance","Aggrecated transaction","Aggrecated user"])    
         
         if method_1 == "Aggrecated insurance":
             tacyg_test = tacy_func()
@@ -101,7 +101,7 @@ elif select == "DATA EXPLORATION":
             # fig_amount.show()
             st.plotly_chart(fig_amount, theme=None, use_container_width=True)   
                 
-        elif method_1 == "Aggrecated trasaction":
+        elif method_1 == "Aggrecated transaction":
             pass
         elif method_1 == "Aggrecated user":
             pass
