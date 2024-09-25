@@ -12,7 +12,7 @@ st.set_page_config(
         layout = "wide"
     )
 def tacy_func():
-        df1 = pd.read_csv('aggrecated_insurance.csv') 
+        df1 = pd.read_csv("phonpe_data/aggrecated/aggrecated_insurance.csv") 
         # dt1["years"].unique()
         tacy = df1[df1["Years"] == 2021 ]
         # Drop a column named 'ColumnName'
@@ -95,10 +95,11 @@ elif select == "DATA EXPLORATION":
         method_1 = st.radio("select",["Aggrecated insurance","Aggrecated trasaction","Aggrecated user"])    
         
         if method_1 == "Aggrecated insurance":
-            tacy_test = tacy_func()
-            # st.dataframe(tacy_test, use_container_width=True) 
-            fig_amount = px.bar(tacyg, x = "States", y = "Transaction_amount")
-            fig_amount.show()
+            tacyg_test = tacy_func()
+            # st.dataframe(tacyg_test, use_container_width=True) 
+            fig_amount = px.bar(tacyg_test, x = "States", y = "Transaction_amount")
+            # fig_amount.show()
+            st.plotly_chart(fig_amount, theme=None, use_container_width=True)   
                 
         elif method_1 == "Aggrecated trasaction":
             pass
