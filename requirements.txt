@@ -6,3 +6,4 @@ pip
 uv
 sqlalchemy
 plotly
+plotly.express
