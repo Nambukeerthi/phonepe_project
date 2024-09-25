@@ -3,6 +3,7 @@ from streamlit_option_menu import option_menu
 from PIL import Image
 import pandas as pd
 from sqlalchemy import create_engine
+import plotly.express as px
 
 st.set_page_config(
         
@@ -10,6 +11,21 @@ st.set_page_config(
         page_icon="",
         layout = "wide"
     )
+def tacy_func():
+        df1 = pd.read_csv('aggrecated_insurance.csv') 
+        # dt1["years"].unique()
+        tacy = df1[df1["Years"] == 2021 ]
+        # Drop a column named 'ColumnName'
+        #tacy.drop(" \ ", axis=1, inplace=True)
+        tacy.drop(columns=['Unnamed: 0'], inplace=True)
+        tacy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
+        tacyg = tacy.groupby("States")[["Transaction_count","Transaction_amount"]].sum()
+        # tacyg = tacy.groupby("States")[["Transaction_count","Transaction_amount"]].sum()
+        tacyg.reset_index(inplace=True)
+        return tacyg 
+
+
+
 
 # streamlit part
 # st.set_page_config(layout = "wide")
@@ -79,7 +95,11 @@ elif select == "DATA EXPLORATION":
         method_1 = st.radio("select",["Aggrecated insurance","Aggrecated trasaction","Aggrecated user"])    
         
         if method_1 == "Aggrecated insurance":
-            pass
+            tacy_test = tacy_func()
+            # st.dataframe(tacy_test, use_container_width=True) 
+            fig_amount = px.bar(tacyg, x = "States", y = "Transaction_amount")
+            fig_amount.show()
+                
         elif method_1 == "Aggrecated trasaction":
             pass
         elif method_1 == "Aggrecated user":
