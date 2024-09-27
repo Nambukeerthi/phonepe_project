@@ -94,9 +94,10 @@ elif select == "DATA EXPLORATION":
        
         method_1 = st.radio("select",["Aggrecated insurance","Aggrecated transaction","Aggrecated user"])        
         
-        if method_1 == "Aggrecated insurance":
-            year = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())    
-            tacyg_test = tacy_func(year)
+        if method_1 == "Aggrecated insurance": 
+            df1 = pd.read_csv("phonepe_data/aggrecated/aggrecated_insurance.csv")
+            years = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())    
+            tacyg_test = tacy_func(years)
             st.dataframe(tacyg_test, use_container_width=True) 
             fig_amount = px.bar(tacyg_test, x = "States", y = "Transaction_amount", title = f"{year} TRANSACTION AMOUNT")
             # fig_amount.show()
