@@ -11,10 +11,10 @@ st.set_page_config(
         page_icon="",
         layout = "wide"
     )
-def tacy_func():
+def tacy_func(year):
         df1 = pd.read_csv("phonepe_data/aggrecated/aggrecated_insurance.csv") 
-        # dt1["years"].unique()
-        tacy = df1[df1["Years"] == 2021 ]
+        # df1["years"].unique()
+        tacy = df1[df1["Years"] == year ]
         # Drop a column named 'ColumnName'
         #tacy.drop(" \ ", axis=1, inplace=True)
         tacy.drop(columns=['Unnamed: 0'], inplace=True)
@@ -92,15 +92,16 @@ elif select == "DATA EXPLORATION":
     
     with tab1:
        
-        method_1 = st.radio("select",["Aggrecated insurance","Aggrecated transaction","Aggrecated user"])    
+        method_1 = st.radio("select",["Aggrecated insurance","Aggrecated transaction","Aggrecated user"])        
         
         if method_1 == "Aggrecated insurance":
-            tacyg_test = tacy_func()
+            st.slider ("Select the year",)    
+            tacyg_test = tacy_func(year)
             st.dataframe(tacyg_test, use_container_width=True) 
-            fig_amount = px.bar(tacyg_test, x = "States", y = "Transaction_amount", title = "TRANSACTION AMOUNT")
+            fig_amount = px.bar(tacyg_test, x = "States", y = "Transaction_amount", title = f"{year} TRANSACTION AMOUNT")
             # fig_amount.show()
             st.plotly_chart(fig_amount, theme=None, use_container_width=True)   
-            fig_count = px.bar(tacyg_test, x = "States", y = "Transaction_count", title = "TRANSACTION COUNT")
+            fig_count = px.bar(tacyg_test, x = "States", y = "Transaction_count", title = f"{year} TRANSACTION COUNT")
             st.plotly_chart(fig_count, theme=None, use_container_width=True)
             
         elif method_1 == "Aggrecated transaction":
