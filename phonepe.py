@@ -97,10 +97,12 @@ elif select == "DATA EXPLORATION":
         if method_1 == "Aggrecated insurance":
             tacyg_test = tacy_func()
             st.dataframe(tacyg_test, use_container_width=True) 
-            fig_amount = px.bar(tacyg_test, x = "States", y = "Transaction_amount")
+            fig_amount = px.bar(tacyg_test, x = "States", y = "Transaction_amount", tittle = "TRANSACTION AMOUNT", color_dicrete_sequence = px.colors.sequential.bluered_r)
             # fig_amount.show()
             st.plotly_chart(fig_amount, theme=None, use_container_width=True)   
-                
+            fig_amount = px.bar(tacyg_test, x = "States", y = "Transaction_count", tittle = "TRANSACTION COUNT", color_dicrete_sequence = px.colors.sequential.aggrnyl)
+            st.plotly_chart(fig_amount, theme=None, use_container_width=True)
+            
         elif method_1 == "Aggrecated transaction":
             pass
         elif method_1 == "Aggrecated user":
