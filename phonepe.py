@@ -100,8 +100,8 @@ elif select == "DATA EXPLORATION":
             fig_amount = px.bar(tacyg_test, x = "States", y = "Transaction_amount", tittle = "TRANSACTION AMOUNT")
             # fig_amount.show()
             st.plotly_chart(fig_amount, theme=None, use_container_width=True)   
-            fig_amount = px.bar(tacyg_test, x = "States", y = "Transaction_count", tittle = "TRANSACTION COUNT")
-            st.plotly_chart(fig_amount, theme=None, use_container_width=True)
+            fig_count = px.bar(tacyg_test, x = "States", y = "Transaction_count", tittle = "TRANSACTION COUNT")
+            st.plotly_chart(fig_count, theme=None, use_container_width=True)
             
         elif method_1 == "Aggrecated transaction":
             pass
