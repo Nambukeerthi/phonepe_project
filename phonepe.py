@@ -13,7 +13,6 @@ st.set_page_config(
     )
 def tacy_func(year):
         df1 = pd.read_csv("phonepe_data/aggrecated/aggrecated_insurance.csv") 
-        st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
         # df1["years"].unique()
         tacy = df1[df1["Years"] == year ]
         # Drop a column named 'ColumnName'
@@ -96,7 +95,7 @@ elif select == "DATA EXPLORATION":
         method_1 = st.radio("select",["Aggrecated insurance","Aggrecated transaction","Aggrecated user"])        
         
         if method_1 == "Aggrecated insurance":
-            # st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())    
+            year = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())    
             tacyg_test = tacy_func(year)
             st.dataframe(tacyg_test, use_container_width=True) 
             fig_amount = px.bar(tacyg_test, x = "States", y = "Transaction_amount", title = f"{year} TRANSACTION AMOUNT")
