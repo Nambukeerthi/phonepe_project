@@ -99,10 +99,10 @@ elif select == "DATA EXPLORATION":
             years = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())    
             tacyg_test = tacy_func(years)
             st.dataframe(tacyg_test, use_container_width=True) 
-            fig_amount = px.bar(tacyg_test, x = "States", y = "Transaction_amount", title = f"{year} TRANSACTION AMOUNT")
+            fig_amount = px.bar(tacyg_test, x = "States", y = "Transaction_amount", title = f"{years} TRANSACTION AMOUNT")
             # fig_amount.show()
             st.plotly_chart(fig_amount, theme=None, use_container_width=True)   
-            fig_count = px.bar(tacyg_test, x = "States", y = "Transaction_count", title = f"{year} TRANSACTION COUNT")
+            fig_count = px.bar(tacyg_test, x = "States", y = "Transaction_count", title = f"{years} TRANSACTION COUNT")
             st.plotly_chart(fig_count, theme=None, use_container_width=True)
             
         elif method_1 == "Aggrecated transaction":
