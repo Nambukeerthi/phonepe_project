@@ -95,6 +95,8 @@ elif select == "DATA EXPLORATION":
         method_1 = st.radio("select",["Aggrecated insurance","Aggrecated transaction","Aggrecated user"])        
         
         if method_1 == "Aggrecated insurance": 
+           
+             # Data frame visualisation    
             df1 = pd.read_csv("phonepe_data/aggrecated/aggrecated_insurance.csv")
             years = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())    
             tacyg_test = tacy_func(years)
@@ -104,6 +106,17 @@ elif select == "DATA EXPLORATION":
             st.plotly_chart(fig_amount, theme=None, use_container_width=True)   
             fig_count = px.bar(tacyg_test, x = "States", y = "Transaction_count", title = f"{years} TRANSACTION COUNT")
             st.plotly_chart(fig_count, theme=None, use_container_width=True)
+            
+            # Map visualisation 
+            url = https://gist.githubusercontent.com/jbrobst/56c13bbbf9d97d187fea01ca62ea5112/raw/e388c4cae20aa53cb5090210a42ebb9b765c0a36/india_states.geojson    
+            response.request.get(url)
+            data1 = json.loads(response.content)
+            states_name =[]
+            for future in data1["features"]:
+            states_name.append(feature["properties"]["ST_NM"])
+            states_name.sort()
+            fig_india_1 = px.choropleth(tacyg, geojason = data1, locations= "States", featureidkey = "properties.ST_NM", color = " Transaction_amount", color_continues_scale = "rainbow", range_color = tacyg["Transaction_amount "].min(),tacyg["Transaction_amount "].max()), hover_name = "States", title = f"{year} "TRANSACTION AMOUNT",fitbounds ="locations",height = 600, width = 600)    
+               
             
         elif method_1 == "Aggrecated transaction":
             pass
