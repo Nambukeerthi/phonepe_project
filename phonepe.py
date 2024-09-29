@@ -115,6 +115,7 @@ elif select == "DATA EXPLORATION":
             with open('phonepe_data/statesname.json', 'r') as file:
               data1 = json.load(file)    
             #data1 = json.loads(response.content)
+            #data2 = json.dumps(data1, indent=4)    
             states_name =[]
             for i in data1["features"]:
               states_name.append(i["properties"]["ST_NM"])          
