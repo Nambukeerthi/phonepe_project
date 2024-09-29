@@ -4,6 +4,7 @@ from PIL import Image
 import pandas as pd
 from sqlalchemy import create_engine
 import plotly.express as px
+import requests
 
 st.set_page_config(
         
