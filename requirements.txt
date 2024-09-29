@@ -7,5 +7,4 @@ uv
 sqlalchemy
 plotly
 plotly.express
-requests
-json
+
