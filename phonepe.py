@@ -119,9 +119,7 @@ elif select == "DATA EXPLORATION":
             for i in data1["features"]:
               states_name.append(i["properties"]["ST_NM"])          
             states_name.sort()
-            #fig_india_1 = px.choropleth(tacyg_test, geojson = data1, locations= "States", featureidkey = "properties.ST_NM", color = "Transaction_amount", color_continues_scale = "Rainbow", range_color = (tacyg_test["Transaction_amount"].min(), tacyg_test["Transaction_amount"].max()), hover_name = "States", title = f"{year} "TRANSACTION AMOUNT", fitbounds ="locations", height = 600, width = 600)    
-            #st.plotly_chart(fig_india_1, use_container_width=True)   
-
+             
             fig_india_1 = px.choropleth(
             tacyg_test,
             geojson=data1,
@@ -136,7 +134,7 @@ elif select == "DATA EXPLORATION":
             height=600,
             width=600
             )
-
+            fig_india_1.update_geos(visible = False)
             st.plotly_chart(fig_india_1, use_container_width=True)
 
 
