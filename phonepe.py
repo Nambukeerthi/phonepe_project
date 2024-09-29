@@ -5,6 +5,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 import plotly.express as px
 import requests
+import json
 
 st.set_page_config(
         
@@ -109,9 +110,11 @@ elif select == "DATA EXPLORATION":
             st.plotly_chart(fig_count, theme=None, use_container_width=True)
             
             # Map visualisation 
-            url = https://gist.githubusercontent.com/jbrobst/56c13bbbf9d97d187fea01ca62ea5112/raw/e388c4cae20aa53cb5090210a42ebb9b765c0a36/india_states.geojson    
-            response.request.get(url)
-            data1 = json.loads(response.content)
+            #url = https://gist.githubusercontent.com/jbrobst/56c13bbbf9d97d187fea01ca62ea5112/raw/e388c4cae20aa53cb5090210a42ebb9b765c0a36/india_states.geojson    
+            #response.request.get(url)
+            with open('phonepe_data/statesname.json', 'r') as file:
+              data1 = json.load(file)    
+            #data1 = json.loads(response.content)
             states_name =[]
             for future in data1["features"]:
              states_name.append(feature["properties"]["ST_NM"])
