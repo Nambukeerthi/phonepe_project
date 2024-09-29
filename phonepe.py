@@ -115,7 +115,7 @@ elif select == "DATA EXPLORATION":
             for future in data1["features"]:
              states_name.append(feature["properties"]["ST_NM"])
             states_name.sort()
-            fig_india_1 = px.choropleth(tacyg, geojason = data1, locations= "States", featureidkey = "properties.ST_NM", color = " Transaction_amount", color_continues_scale = "rainbow", range_color = tacyg["Transaction_amount "].min(),tacyg["Transaction_amount "].max()), hover_name = "States", title = f"{year} "TRANSACTION AMOUNT",fitbounds ="locations",height = 600, width = 600)    
+            fig_india_1 = px.choropleth(tacyg_test, geojason = data1, locations= "States", featureidkey = "properties.ST_NM", color = " Transaction_amount", color_continues_scale = "rainbow", range_color = tacyg["Transaction_amount "].min(),tacyg["Transaction_amount "].max()), hover_name = "States", title = f"{year} "TRANSACTION AMOUNT",fitbounds ="locations",height = 600, width = 600)    
             st.plotly_chart(fig_india_1, use_container_width=True)   
             
         elif method_1 == "Aggrecated transaction":
