@@ -110,7 +110,7 @@ elif select == "DATA EXPLORATION":
             st.plotly_chart(fig_count, theme=None, use_container_width=True)
             
             # Map visualisation 
-            url = https://gist.githubusercontent.com/jbrobst/56c13bbbf9d97d187fea01ca62ea5112/raw/e388c4cae20aa53cb5090210a42ebb9b765c0a36/india_states.geojson    
+            url = "https://gist.githubusercontent.com/jbrobst/56c13bbbf9d97d187fea01ca62ea5112/raw/e388c4cae20aa53cb5090210a42ebb9b765c0a36/india_states.geojson"    
             response= requests.get(url)
             #with open('phonepe_data/statesname.json', 'r') as file:
               #data1 = json.load(file)    
