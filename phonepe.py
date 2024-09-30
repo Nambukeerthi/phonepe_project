@@ -123,7 +123,7 @@ elif select == "DATA EXPLORATION":
              
             fig_india_1 = px.choropleth(
             tacyg_test,
-            geojson=data1,
+            geojson=states_name,
             locations="States",
             featureidkey="properties.ST_NM",
             color="Transaction_amount",
