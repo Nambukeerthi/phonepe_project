@@ -135,7 +135,7 @@ elif select == "DATA EXPLORATION":
             height=600,
             width=600
             )
-            fig_india_1.update_geos(visible = False)
+            #fig_india_1.update_geos(visible = False)
             st.plotly_chart(fig_india_1, use_container_width=True)
 
 
