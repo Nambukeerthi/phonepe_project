@@ -117,7 +117,7 @@ elif select == "DATA EXPLORATION":
             data1 = json.loads(response.content)
             #data2 = json.dumps(data1, indent=4)    
             states_name =[]
-            for i in data2["features"]:
+            for i in data1["features"]:
               states_name.append(i["properties"]["ST_NM"])          
             states_name.sort()
              
