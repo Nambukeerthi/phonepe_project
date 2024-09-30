@@ -130,7 +130,7 @@ elif select == "DATA EXPLORATION":
             color_continuous_scale="Rainbow",  # Corrected spelling from "color_continues_scale"
             range_color=(tacyg_test["Transaction_amount"].min(), tacyg_test["Transaction_amount"].max()),
             hover_name="States",
-            title=f"{year} TRANSACTION AMOUNT",  # Fixed string interpolation
+            title=f"{years} TRANSACTION AMOUNT",  # Fixed string interpolation
             fitbounds="locations",
             height=600,
             width=600
