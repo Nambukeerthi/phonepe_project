@@ -130,7 +130,7 @@ elif select == "DATA EXPLORATION":
             title=f"{years} TRANSACTION AMOUNT",  # Fixed string interpolation
             fitbounds="locations",
             height=700,
-            width=900
+            width=700
             )
             fig_india_1.update_geos(visible = False)
             st.plotly_chart(fig_india_1, use_container_width=True)
