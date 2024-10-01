@@ -129,8 +129,8 @@ elif select == "DATA EXPLORATION":
             hover_name="States",
             title=f"{years} TRANSACTION AMOUNT",  # Fixed string interpolation
             fitbounds="locations",
-            height=600,
-            width=600
+            height=700,
+            width=900
             )
             fig_india_1.update_geos(visible = False)
             st.plotly_chart(fig_india_1, use_container_width=True)
