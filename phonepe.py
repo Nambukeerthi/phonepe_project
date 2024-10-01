@@ -111,11 +111,8 @@ elif select == "DATA EXPLORATION":
             
             # Map visualisation 
             url = "https://gist.githubusercontent.com/jbrobst/56c13bbbf9d97d187fea01ca62ea5112/raw/e388c4cae20aa53cb5090210a42ebb9b765c0a36/india_states.geojson"    
-            response= requests.get(url)
-            #with open('phonepe_data/statesname.json', 'r') as file:
-              #data1 = json.load(file)    
-            data1 = json.loads(response.content)
-            #data2 = json.dumps(data1, indent=4)    
+            response= requests.get(url)   
+            data1 = json.loads(response.content)    
             states_name =[]
             for i in data1["features"]:
               states_name.append(i["properties"]["ST_NM"])          
@@ -135,7 +132,7 @@ elif select == "DATA EXPLORATION":
             height=600,
             width=600
             )
-            #fig_india_1.update_geos(visible = False)
+            fig_india_1.update_geos(visible = False)
             st.plotly_chart(fig_india_1, use_container_width=True)
 
 
