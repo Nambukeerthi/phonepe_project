@@ -29,7 +29,7 @@ def tacy_func(year):
 
 
 # Top Charts
-def top_charts_q1:
+def top_charts_q1():
        df_q1 = pd.read_csv('1aggrecated_insurance.csv') 
        group1 = df_q1.groupby("States")
        q1_sum =group1["Transaction_amount"].agg([np.sum]) 
