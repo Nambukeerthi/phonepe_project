@@ -135,7 +135,22 @@ elif select == "DATA EXPLORATION":
             fig_india_1.update_geos(visible = False)
             st.plotly_chart(fig_india_1, use_container_width=True)
 
-
+            fig_india_2 = px.choropleth(
+            tacyg_test,
+            geojson=data1,
+            locations="States",
+            featureidkey="properties.ST_NM",
+            color="Transaction_amount",
+            color_continuous_scale="Rainbow",  # Corrected spelling from "color_continues_scale"
+            range_color=(tacyg_test["Transaction_count"].min(), tacyg_test["Transaction_count"].max()),
+            hover_name="States",
+            title=f"{years} TRANSACTION COUNT",  # Fixed string interpolation
+            fitbounds="locations",
+            height=700,
+            width=700
+            )
+            fig_india_2.update_geos(visible = False)
+            st.plotly_chart(fig_india_2, use_container_width=True)
             
         elif method_1 == "Aggrecated transaction":
             pass
