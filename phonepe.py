@@ -200,7 +200,8 @@ elif select == "DATA EXPLORATION":
             pass     
         
 elif select == "TOP CHARTS":           
-    questions =  st.selectbox( "Select The Question", [ "1. Transaction Amount and Count of Aggrecated  Insurance",
+    questions =  st.selectbox( "Select The Question", [ 
+                                                       "1. Transaction Amount and Count of Aggrecated  Insurance",
                                                         "2. Transaction Amount and Count of Map  Insurance",
                                                         "3. Transaction Amount and Count of Top  Insurance",
                                                         "4. Transaction Amount and Count of Aggrecated  Transaction",
@@ -209,7 +210,8 @@ elif select == "TOP CHARTS":
                                                         "7. Tansaction Count of Aggregated User",
                                                         "8. Registered users of Map User",
                                                         "9. App opens of Map User",
-                                                        "10. Regeisterd users of Top User"]  )
+                                                        "10. Regeisterd users of Top User"
+                                                       ]  )
     if st.button("Submit"):
          if choice == "1. Transaction Amount and Count of Aggrecated  Insurance":
                 # q1_sum, q1_asce, q1_desc, q1_avg =  
