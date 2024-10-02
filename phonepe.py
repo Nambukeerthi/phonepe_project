@@ -195,7 +195,7 @@ elif select == "DATA EXPLORATION":
             pass     
         
 elif select == "TOP CHARTS":           
-    questions = st.selectbox("Select The Question", [   "1. Transaction Amount and Count of Aggrecated  Insurance",
+    questions = st.selectbox("Select The Question",   [ "1. Transaction Amount and Count of Aggrecated  Insurance",
                                                         "2. Transaction Amount and Count of Map  Insurance",
                                                         "3. Transaction Amount and Count of Top  Insurance",
                                                         "4. Transaction Amount and Count of Aggrecated  Transaction",
