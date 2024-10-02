@@ -13,6 +13,7 @@ st.set_page_config(
         page_icon="",
         layout = "wide"
     )
+# Data Exploration
 def tacy_func(year):
         df1 = pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv") 
         # df1["years"].unique()
@@ -25,6 +26,20 @@ def tacy_func(year):
         # tacyg = tacy.groupby("States")[["Transaction_count","Transaction_amount"]].sum()
         tacyg.reset_index(inplace=True)
         return tacyg 
+
+
+# Top Charts
+def top_charts_q1:
+       df_q1 = pd.read_csv('1aggrecated_insurance.csv') 
+       group1 = df_q1.groupby("States")
+       q1_sum =group1["Transaction_amount"].agg([np.sum]) 
+       q1_asce = q1_sum.sort_values(by='sum', ascending=False).head(10)
+       q1_desc = q1_sum.sort_values(by='sum', ascending=True).head(10)
+       q1_avg =group1["Transaction_amount"].agg([np.mean])
+       return  q1_sum, q1_asce,q1_desc, q1_avg
+
+
+
 
 
 
@@ -98,7 +113,7 @@ elif select == "DATA EXPLORATION":
         
         if method_1 == "Aggrecated insurance": 
            
-             # Data frame visualisation    
+            # Data frame visualisation    
             df1 = pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv")
             years = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())    
             tacyg_test = tacy_func(years)
@@ -190,6 +205,21 @@ elif select == "TOP CHARTS":
                                                         "8. Registered users of Map User",
                                                         "9. App opens of Map User",
                                                         "10. Regeisterd users of Top User"]  )
+    
+    if choice == "1. Transaction Amount and Count of Aggrecated  Insurance"
+        q1_sum, q1_asce, q1_desc, q1_avg =  top_charts_q1()
+        st.dataframe(q1_asce , use_container_width=True)
+        fig_q1_asce = px.bar(q1_asce , x = "States", y = "sum", title = "TRANSACTION AMOUNT")
+        st.plotly_chart(fig_q1_asce, theme=None, use_container_width=True)   
+        st.dataframe(q1_sum , use_container_width=True)
+        fig_q1_desc = px.barq1_desc , x = "States", y = "sum", title = "TRANSACTION AMOUNT")
+        st.plotly_chart(fig_q1_desc, theme=None, use_container_width=True)  
+
+
+
+
+
+
 
 elif select == "CODINGS":
     pass
