@@ -206,7 +206,7 @@ elif select == "TOP CHARTS":
                                                         "9. App opens of Map User",
                                                         "10. Regeisterd users of Top User"]  )
     
-    if choice == "1. Transaction Amount and Count of Aggrecated  Insurance"
+    if choice == "1. Transaction Amount and Count of Aggrecated  Insurance":
         q1_sum, q1_asce, q1_desc, q1_avg =  top_charts_q1()
         st.dataframe(q1_asce , use_container_width=True)
         fig_q1_asce = px.bar(q1_asce , x = "States", y = "sum", title = "TRANSACTION AMOUNT")
