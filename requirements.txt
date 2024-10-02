@@ -7,4 +7,4 @@ uv
 sqlalchemy
 plotly
 plotly.express
-
+numpy
