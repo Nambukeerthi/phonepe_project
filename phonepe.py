@@ -213,7 +213,7 @@ elif select == "TOP CHARTS":
                                                         "10. Regeisterd users of Top User"
                                                        ]  )
     if st.button("Submit"):
-         if choice == "1. Transaction Amount and Count of Aggrecated  Insurance":
+         if questions ==  "1. Transaction Amount and Count of Aggrecated  Insurance":
                 # q1_sum, q1_asce, q1_desc, q1_avg =  
                 top_charts_q1()
                 
