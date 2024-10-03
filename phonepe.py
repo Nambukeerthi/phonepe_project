@@ -39,8 +39,12 @@ def top_charts_q1():
        q1_avg =group1["Transaction_amount"].agg([np.mean])
        st.dataframe(q1_asce , use_container_width=True)
        st.dataframe(q1_desc , use_container_width=True)
+       fig_q1_asce = px.bar(q1_asce , x = "States", y = "sum", title = "TRANSACTION AMOUNT")
+       st.plotly_chart(fig_q1_asce, theme=None, use_container_width=True)
+       fig_q1_desc = px.bar(q1_desc , x = "States", y = "sum", title = "TRANSACTION AMOUNT")
+       st.plotly_chart(fig_q1_desc, theme=None, use_container_width=True) 
 
-       return q1_sum, q1_asce, q1_desc, q1_avg
+      # return q1_sum, q1_asce, q1_desc, q1_avg
         
 
 
@@ -213,12 +217,9 @@ elif select == "TOP CHARTS":
                                                        ]  )
     if st.button("Submit"):
          if questions ==  "1. Transaction Amount and Count of Aggrecated  Insurance":
-                q1_sum, q1_asce, q1_desc, q1_avg =  top_charts_q1()
-                fig_q1_asce = px.bar(q1_asce , x = "States", y = "sum", title = "TRANSACTION AMOUNT")
-                st.plotly_chart(fig_q1_asce, theme=None, use_container_width=True)
-                fig_q1_desc = px.bar(q1_desc , x = "States", y = "sum", title = "TRANSACTION AMOUNT")
-                st.plotly_chart(fig_q1_desc, theme=None, use_container_width=True) 
-
+                # q1_sum, q1_asce, q1_desc, q1_avg = 
+                top_charts_q1()
+                
 
 
 
