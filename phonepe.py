@@ -31,7 +31,7 @@ def tacy_func(year):
 
 # Top Charts
 def top_charts_q1():
-       df_q1 = pd.read_csv('1aggrecated_insurance.csv') 
+       df_q1 = pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv") 
        group1 = df_q1.groupby("States")
        q1_sum =group1["Transaction_amount"].agg([np.sum]) 
        q1_asce = q1_sum.sort_values(by='sum', ascending=False).head(10)
