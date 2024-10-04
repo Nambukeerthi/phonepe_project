@@ -37,10 +37,10 @@ def top_charts_q1():
        q1_asce = q1_sum.sort_values(by='sum', ascending=False).head(10)
        q1_desc = q1_sum.sort_values(by='sum', ascending=True).head(10)
        q1_avg =group1["Transaction_amount"].agg([np.mean])
-       st.dataframe(q1_asce , use_container_width=True)
-       st.dataframe(q1_desc , use_container_width=True)
+       st.dataframe(q1_asce , use_container_width=True)  
        fig_q1_asce = px.bar(q1_asce , x = "States", y = "sum", title = "TRANSACTION AMOUNT")
        st.plotly_chart(fig_q1_asce, theme=None, use_container_width=True)
+       st.dataframe(q1_desc , use_container_width=True)
        fig_q1_desc = px.bar(q1_desc , x = "States", y = "sum", title = "TRANSACTION AMOUNT")
        st.plotly_chart(fig_q1_desc, theme=None, use_container_width=True) 
 
