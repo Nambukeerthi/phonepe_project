@@ -197,7 +197,11 @@ elif select == "DATA EXPLORATION":
             st.plotly_chart(fig_india_2, use_container_width=True)
             
         elif method_1 == "Aggrecated transaction":
-            pass
+               df_q11 =  pd.read_csv("phonepe_data/map/1map_insurance.csv")
+               group11 = df_q11.groupby("States")["Transaction_amount"].sum().reset_index()
+               st.dataframe(group11, use_container_width=True) 
+
+            
         elif method_1 == "Aggrecated user":
             pass
     
