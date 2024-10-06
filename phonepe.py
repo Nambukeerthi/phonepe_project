@@ -223,7 +223,3 @@ elif select == "TOP CHARTS":
 
 
 
-
-
-elif select == "CODINGS":
-    pass
