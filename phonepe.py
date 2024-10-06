@@ -36,16 +36,14 @@ def top_charts_q1():
        st.dataframe(group1, use_container_width=True)
         
        q1_asce =group1.sort_values(by="Transaction_amount", ascending=True).head(10) 
-       q1_asce.reset_index(drop= True, inplace=True) 
-       #st.dataframe(q1_asce , use_container_width=True)  
+       q1_asce.reset_index(drop= True, inplace=True)   
        fig_q1_asce = px.bar(q1_asce , x = "States", y = "Transaction_amount", title = "HIGHEST")
        st.plotly_chart(fig_q1_asce, theme=None, use_container_width=True)
         
        q1_desc = group1.sort_values(by="Transaction_amount", ascending=False).head(10) 
        q1_desc.reset_index(drop= True, inplace=True)
-       #st.dataframe(q1_asce , use_container_width=True)
-       fig_q1_asce = px.bar(q1_desc , x = "States", y = "Transaction_amount", title = "LOWEST", color_continuous_scale=px.colors.sequential.Viridis)
-       st.plotly_chart(fig_q1_asce, theme=None, use_container_width=True)
+       fig_q1_desc = px.bar(q1_desc , x = "States", y = "Transaction_amount", title = "LOWEST", color_continuous_scale=px.colors.sequential.Viridis)
+       st.plotly_chart(fig_q1_desc, theme=None, use_container_width=True)
         
        q1_avg = df_q1.groupby("States")["Transaction_amount"].mean().reset_index()
        fig_q1_avg = px.bar(q1_avg , x = "States", y = "Transaction_amount", title = "AVERAGE", color_continuous_scale=px.colors.sequential.Aggrnyl)
