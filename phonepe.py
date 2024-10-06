@@ -236,18 +236,18 @@ elif select == "TOP CHARTS":
                                                         "10. Regeisterd users of Top User"
                                                        ]  )
     
-         if questions ==  "1. Transaction Amount and Count of Aggrecated  Insurance":
+   if questions ==  "1. Transaction Amount and Count of Aggrecated  Insurance":
                 df_csv = pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv") 
                 top_charts_amount_q1(df_csv)
                 top_charts_count_q1(df_csv) 
-                
-         elif questions ==  "2. Transaction Amount and Count of Map  Insurance":
-                df1_csv = pd.read_csv("phonepe_data/map/1map_insurance.csv") 
-                top_charts_amount_q1(df1_csv)
-                top_charts_count_q1(df1_csv)
-                 
-         elif questions ==  "2. Transaction Amount and Count of Map  Insurance":
-                df1_csv = pd.read_csv("phonepe_data/top/1top_insurance.csv") 
-                top_charts_amount_q1(df1_csv)
-                top_charts_count_q1(df1_csv)
+        
+   elif questions ==  "2. Transaction Amount and Count of Map  Insurance":
+        df1_csv = pd.read_csv("phonepe_data/map/1map_insurance.csv") 
+        top_charts_amount_q1(df1_csv)
+        top_charts_count_q1(df1_csv)
+         
+   elif questions ==  "2. Transaction Amount and Count of Map  Insurance":
+        df1_csv = pd.read_csv("phonepe_data/top/1top_insurance.csv") 
+        top_charts_amount_q1(df1_csv)
+        top_charts_count_q1(df1_csv)
 
