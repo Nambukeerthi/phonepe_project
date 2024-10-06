@@ -34,7 +34,7 @@ def top_charts_q1():
        df_q1 = pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv") 
        group1 = df_q1.groupby("States")["Transaction_amount"].sum().reset_index()
        q1_asce =group1.sort_values(by="Transaction_amount", ascending=False).head(10) 
-       q1_sum.reset_index(drop= True, inplace=True) 
+       q1_asce.reset_index(drop= True, inplace=True) 
        st.dataframe(q1_asce , use_container_width=True)  
        fig_q1_asce = px.bar(q1_asce , x = "States", y = "Transaction_amount", title = "TRANSACTION AMOUNT")
        st.plotly_chart(fig_q1_asce, theme=None, use_container_width=True)
