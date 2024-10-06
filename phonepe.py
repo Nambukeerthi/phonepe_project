@@ -256,17 +256,17 @@ elif select == "TOP CHARTS":
                                 top_charts_count_q1(df3_csv)
                     
             elif questions ==    "4. Transaction Amount and Count of Aggrecated  Transaction":
-                                df4_csv = pd.read_csv("phonepe_data/aggrecated/2aggrecated_transaction.csv" 
+                                df4_csv = pd.read_csv("phonepe_data/aggrecated/2aggrecated_transaction.csv") 
                                 top_charts_amount_q1(df4_csv)
                                 top_charts_count_q1(df4_csv)
 
             elif questions ==    "5. Transaction Amount and Count of Map  Transaction":
-                                df5_csv = pd.read_csv("phonepe_data/map/2map_transaction.csv" 
+                                df5_csv = pd.read_csv("phonepe_data/map/2map_transaction.csv") 
                                 top_charts_amount_q1(df5_csv)
                                 top_charts_count_q1(df5_csv)
 
             elif questions ==    "6. Transaction Amount and Count of Top  Transaction":
-                                df6_csv = pd.read_csv("phonepe_data/top/2top_transaction.csv" 
+                                df6_csv = pd.read_csv("phonepe_data/top/2top_transaction.csv") 
                                 top_charts_amount_q1(df6_csv)
                                 top_charts_count_q1(df6_csv)
 
