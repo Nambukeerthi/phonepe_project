@@ -31,6 +31,7 @@ def tacy_func(year):
 
 # Top Charts
 def top_charts_amount_q1(df_csv):
+               st.subheader("TRANSACTION AMOUNT")
                df_q1 = df_csv  # pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv") 
                group1 = df_q1.groupby("States")["Transaction_amount"].sum().reset_index()
                st.dataframe(group1, use_container_width=True)
@@ -49,7 +50,8 @@ def top_charts_amount_q1(df_csv):
                fig_q1_avg = px.bar(q1_avg , x = "States", y = "Transaction_amount", title = "AVERAGE")
                st.plotly_chart(fig_q1_avg, theme=None, use_container_width=True) 
         
-def top_charts_count_q1(df_csv):        
+def top_charts_count_q1(df_csv):  
+              st.subheader("TRANSACTION COUNT")
               df_q1 = df_csv # pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv")
               group1 = df_q1.groupby("States")["Transaction_count"].sum().reset_index()
               st.dataframe(group1, use_container_width=True)
@@ -197,9 +199,7 @@ elif select == "DATA EXPLORATION":
             st.plotly_chart(fig_india_2, use_container_width=True)
             
         elif method_1 == "Aggrecated transaction":
-               df_q11 =  pd.read_csv("phonepe_data/top/1top_insurance.csv")
-               group11 = df_q11.groupby("States")["Transaction_amount"].sum().reset_index()
-               st.dataframe(group11, use_container_width=True) 
+            pass
 
             
         elif method_1 == "Aggrecated user":
