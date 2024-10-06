@@ -317,10 +317,10 @@ elif select == "TOP CHARTS":
                                 registerd_users(df8_csv)
  
             elif questions ==    "9. App opens of Map User":
-                                df7_csv = pd.read_csv("phonepe_data/map3map_user.csv") 
+                                df9_csv = pd.read_csv("phonepe_data/map3map_user.csv") 
                                 app_opens(df9_csv)
 
             elif questions ==    "10. Regeisterd users of Top User":
-                                df7_csv = pd.read_csv("phonepe_data/top/3top_user.csv") 
+                                df10_csv = pd.read_csv("phonepe_data/top/3top_user.csv") 
                                 registerd_users(df10_csv)
 
