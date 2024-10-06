@@ -42,7 +42,7 @@ def top_charts_q1():
         
        q1_desc = group1.sort_values(by="Transaction_amount", ascending=False).head(10) 
        q1_desc.reset_index(drop= True, inplace=True)
-       fig_q1_desc = px.bar(q1_desc , x = "States", y = "Transaction_amount", title = "LOWEST", color_continuous_scale=px.colors.sequential.Viridis)
+       fig_q1_desc = px.line(q1_desc , x = "States", y = "Transaction_amount", title = "LOWEST", color_continuous_scale=px.colors.sequential.Viridis)
        st.plotly_chart(fig_q1_desc, theme=None, use_container_width=True)
         
        q1_avg = df_q1.groupby("States")["Transaction_amount"].mean().reset_index()
