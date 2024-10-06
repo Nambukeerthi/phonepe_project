@@ -242,8 +242,8 @@ elif select == "TOP CHARTS":
                 top_charts_count_q1(df_csv) 
                 
          elif questions ==  "2. Transaction Amount and Count of Map  Insurance":
-                df_csv = pd.read_csv("phonepe_data/map/1map_insurance.csv") 
-                top_charts_amount_q1(df_csv)
-                top_charts_count_q1(df_csv)
+                df1_csv = pd.read_csv("phonepe_data/map/1map_insurance.csv") 
+                top_charts_amount_q1(df1_csv)
+                top_charts_count_q1(df1_csv)
 
 
