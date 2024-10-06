@@ -49,7 +49,7 @@ def top_charts_amount_q1():
        fig_q1_avg = px.bar(q1_avg , x = "States", y = "Transaction_amount", title = "AVERAGE")
        st.plotly_chart(fig_q1_avg, theme=None, use_container_width=True) 
         
-def top_charts_count_q1()        
+def top_charts_count_q1():        
       df_q1 = pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv")
       group1 = df_q1.groupby("States")["Transaction_count"].sum().reset_index()
       st.dataframe(group1, use_container_width=True)
