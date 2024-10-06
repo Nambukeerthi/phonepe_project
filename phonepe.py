@@ -241,17 +241,33 @@ elif select == "TOP CHARTS":
                                                        ]  )
     if st.button("Submit"):
             if questions ==      "1. Transaction Amount and Count of Aggrecated  Insurance":
-                                df_csv = pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv") 
-                                top_charts_amount_q1(df_csv)
-                                top_charts_count_q1(df_csv) 
+                                df1_csv = pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv") 
+                                top_charts_amount_q1(df1_csv)
+                                top_charts_count_q1(df1_csv) 
                         
             elif questions ==    "2. Transaction Amount and Count of Map  Insurance":
-                                df1_csv = pd.read_csv("phonepe_data/map/1map_insurance.csv") 
-                                top_charts_amount_q1(df1_csv)
-                                top_charts_count_q1(df1_csv)
-                 
-            elif questions ==    "3. Transaction Amount and Count of Top  Insurance":
-                                df2_csv = pd.read_csv("phonepe_data/top/1top_insurance.csv") 
+                                df2_csv = pd.read_csv("phonepe_data/map/1map_insurance.csv") 
                                 top_charts_amount_q1(df2_csv)
                                 top_charts_count_q1(df2_csv)
+                 
+            elif questions ==    "3. Transaction Amount and Count of Top  Insurance":
+                                df3_csv = pd.read_csv("phonepe_data/top/1top_insurance.csv") 
+                                top_charts_amount_q1(df3_csv)
+                                top_charts_count_q1(df3_csv)
+                    
+            elif questions ==    "4. Transaction Amount and Count of Aggrecated  Transaction":
+                                df4_csv = pd.read_csv("phonepe_data/aggrecated/2aggrecated_transaction.csv" 
+                                top_charts_amount_q1(df4_csv)
+                                top_charts_count_q1(df4_csv)
 
+            elif questions ==    "5. Transaction Amount and Count of Map  Transaction":
+                                df5_csv = pd.read_csv("phonepe_data/map/2map_transaction.csv" 
+                                top_charts_amount_q1(df5_csv)
+                                top_charts_count_q1(df5_csv)
+
+            elif questions ==    "6. Transaction Amount and Count of Top  Transaction":
+                                df6_csv = pd.read_csv("phonepe_data/top/2top_transaction.csv" 
+                                top_charts_amount_q1(df6_csv)
+                                top_charts_count_q1(df6_csv)
+
+                    
