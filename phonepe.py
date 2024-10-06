@@ -62,7 +62,7 @@ st.markdown(" ")
 
 with st.sidebar:
     
-    select = option_menu("Main menu",["HOME","DATA EXPLORATION","TOP CHARTS","CODINGS"])
+    select = option_menu("Main menu",["HOME","DATA EXPLORATION","TOP CHARTS"])
     
     
 if select == "HOME":
