@@ -70,8 +70,45 @@ def top_charts_count_q1(df_csv):
               fig_q1_avg = px.bar(q1_avg , x = "States", y = "Transaction_count", title = "AVERAGE")
               st.plotly_chart(fig_q1_avg, theme=None, use_container_width=True) 
 
+def registerd_users(df_csv):
+              st.subheader("REGISTERD USERS")  
+              df_q1 = df_csv # pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv")
+              group1 = df_q1.groupby("States")["Rergistered_users"].sum().reset_index()
+              st.dataframe(group1, use_container_width=True)
 
+              q1_asce =group1.sort_values(by="Rergistered_users", ascending=True).head(10) 
+              q1_asce.reset_index(drop= True, inplace=True)   
+              fig_q1_asce = px.line(q1_asce , x = "States", y = "Rergistered_users", title = "HIGHEST", height= 600, width = 600)
+              st.plotly_chart(fig_q1_asce, theme=None, use_container_width=True)
 
+              q1_desc = group1.sort_values(by="Rergistered_users", ascending=False).head(10) 
+              q1_desc.reset_index(drop= True, inplace=True)
+              fig_q1_desc = px.line(q1_desc , x = "States", y = "Rergistered_users", title = "LOWEST", height= 600, width = 600)
+              st.plotly_chart(fig_q1_desc, theme=None, use_container_width=True )
+
+              q1_avg = df_q1.groupby("States")["Rergistered_users"].mean().reset_index()
+              fig_q1_avg = px.bar(q1_avg , x = "States", y = "Rergistered_users", title = "AVERAGE")
+              st.plotly_chart(fig_q1_avg, theme=None, use_container_width=True) 
+
+def app_opens(df_csv):
+              st.subheader("APP OPENS") 
+              df_q1 = df_csv # pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv")
+              group1 = df_q1.groupby("States")["Appopens"].sum().reset_index()
+              st.dataframe(group1, use_container_width=True)
+
+              q1_asce =group1.sort_values(by="Appopens", ascending=True).head(10) 
+              q1_asce.reset_index(drop= True, inplace=True)   
+              fig_q1_asce = px.line(q1_asce , x = "States", y = "Appopens", title = "HIGHEST", height= 600, width = 600)
+              st.plotly_chart(fig_q1_asce, theme=None, use_container_width=True)
+
+              q1_desc = group1.sort_values(by="Appopens", ascending=False).head(10) 
+              q1_desc.reset_index(drop= True, inplace=True)
+              fig_q1_desc = px.line(q1_desc , x = "States", y = "Appopens", title = "LOWEST", height= 600, width = 600)
+              st.plotly_chart(fig_q1_desc, theme=None, use_container_width=True )
+
+              q1_avg = df_q1.groupby("States")["Appopens"].mean().reset_index()
+              fig_q1_avg = px.bar(q1_avg , x = "States", y = "Appopens", title = "AVERAGE")
+              st.plotly_chart(fig_q1_avg, theme=None, use_container_width=True) 
 
 
 
@@ -270,4 +307,20 @@ elif select == "TOP CHARTS":
                                 top_charts_amount_q1(df6_csv)
                                 top_charts_count_q1(df6_csv)
 
-                    
+            elif questions ==    "7. Tansaction Count of Aggregated User":
+                                df7_csv = pd.read_csv("phonepe_data/aggrecated/3aggrecated_user.csv") 
+                                top_charts_amount_q1(df7_csv)
+                                top_charts_count_q1(df7_csv)
+
+            elif questions ==    "8. Registered users of Map User":
+                                df8_csv = pd.read_csv("phonepe_data/map/3map_user.csv") 
+                                registerd_users(df8_csv)
+ 
+            elif questions ==    "9. App opens of Map User":
+                                df7_csv = pd.read_csv("phonepe_data/map3map_user.csv") 
+                                app_opens(df9_csv)
+
+            elif questions ==    "10. Regeisterd users of Top User":
+                                df7_csv = pd.read_csv("phonepe_data/top/3top_user.csv") 
+                                registerd_users(df10_csv)
+
