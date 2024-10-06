@@ -235,7 +235,7 @@ elif select == "TOP CHARTS":
                                                         "9. App opens of Map User",
                                                         "10. Regeisterd users of Top User"
                                                        ]  )
-    if st.button :
+    if st.button("Submit"):
             if questions ==      "1. Transaction Amount and Count of Aggrecated  Insurance":
                                 df_csv = pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv") 
                                 top_charts_amount_q1(df_csv)
