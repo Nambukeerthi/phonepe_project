@@ -73,21 +73,21 @@ def top_charts_count_q1(df_csv):
 def registerd_users(df_csv):
               st.subheader("REGISTERD USERS")  
               df_q1 = df_csv # pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv")
-              group1 = df_q1.groupby("States")["Rergistered_users"].sum().reset_index()
+              group1 = df_q1.groupby("States")["Registered_users"].sum().reset_index()
               st.dataframe(group1, use_container_width=True)
 
-              q1_asce =group1.sort_values(by="Rergistered_users", ascending=True).head(10) 
+              q1_asce =group1.sort_values(by="Registered_users", ascending=True).head(10) 
               q1_asce.reset_index(drop= True, inplace=True)   
-              fig_q1_asce = px.line(q1_asce , x = "States", y = "Rergistered_users", title = "HIGHEST", height= 600, width = 600)
+              fig_q1_asce = px.line(q1_asce , x = "States", y = "Registered_users", title = "HIGHEST", height= 600, width = 600)
               st.plotly_chart(fig_q1_asce, theme=None, use_container_width=True)
 
-              q1_desc = group1.sort_values(by="Rergistered_users", ascending=False).head(10) 
+              q1_desc = group1.sort_values(by="Registered_users", ascending=False).head(10) 
               q1_desc.reset_index(drop= True, inplace=True)
-              fig_q1_desc = px.line(q1_desc , x = "States", y = "Rergistered_users", title = "LOWEST", height= 600, width = 600)
+              fig_q1_desc = px.line(q1_desc , x = "States", y = "Registered_users", title = "LOWEST", height= 600, width = 600)
               st.plotly_chart(fig_q1_desc, theme=None, use_container_width=True )
 
-              q1_avg = df_q1.groupby("States")["Rergistered_users"].mean().reset_index()
-              fig_q1_avg = px.bar(q1_avg , x = "States", y = "Rergistered_users", title = "AVERAGE")
+              q1_avg = df_q1.groupby("States")["Registered_users"].mean().reset_index()
+              fig_q1_avg = px.bar(q1_avg , x = "States", y = "Registered_users", title = "AVERAGE")
               st.plotly_chart(fig_q1_avg, theme=None, use_container_width=True) 
 
 def app_opens(df_csv):
