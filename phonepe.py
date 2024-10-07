@@ -47,7 +47,7 @@ def top_charts_amount_q1(df_csv):
                st.plotly_chart(fig_q1_desc, theme=None, use_container_width=True ) #
                 
                q1_avg = df_q1.groupby("States")["Transaction_amount"].mean().reset_index()
-               fig_q1_avg = px.bar(q1_avg , x = "States", y = "Transaction_amount", title = "AVERAGE")
+               fig_q1_avg = px.bar(q1_avg , x = "States", y = "Transaction_amount", title = "AVERAGE", color_discrete_sequence= px.colors.sequential.Bluered_r)
                st.plotly_chart(fig_q1_avg, theme=None, use_container_width=True) 
         
 def top_charts_count_q1(df_csv):  
