@@ -18,7 +18,7 @@ st.set_page_config(
 def tacy_func():
         df1 = pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv") 
         years = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
-        tacy = df1[df1["Years"] == year ]
+        tacy = df1[df1["Years"] == years ]
         tacy.drop(columns=['Unnamed: 0'], inplace=True)
         tacy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
         tacyg = tacy.groupby("States")[["Transaction_count","Transaction_amount"]].sum()
