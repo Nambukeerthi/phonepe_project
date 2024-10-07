@@ -38,16 +38,16 @@ def top_charts_amount_q1(df_csv):
                 
                q1_asce =group1.sort_values(by="Transaction_amount", ascending=True).head(10) 
                q1_asce.reset_index(drop= True, inplace=True)   
-               fig_q1_asce = px.line(q1_asce , x = "States", y = "Transaction_amount", title = "HIGHEST", height= 600, width = 600)
+               fig_q1_asce = px.line(q1_asce , x = "States", y = "Transaction_amount", title = "HIGHEST", height= 600, width = 600, color_discrete_sequence= px.colors.sequential.Bluered_r)
                st.plotly_chart(fig_q1_asce, theme=None, use_container_width=True)
                 
                q1_desc = group1.sort_values(by="Transaction_amount", ascending=False).head(10) 
                q1_desc.reset_index(drop= True, inplace=True)
-               fig_q1_desc = px.line(q1_desc , x = "States", y = "Transaction_amount", title = "LOWEST", height= 600, width = 600)
+               fig_q1_desc = px.line(q1_desc , x = "States", y = "Transaction_amount", title = "LOWEST", height= 600, width = 600, color_discrete_sequence= px.colors.sequential.Bluered_r)
                st.plotly_chart(fig_q1_desc, theme=None, use_container_width=True ) #
                 
                q1_avg = df_q1.groupby("States")["Transaction_amount"].mean().reset_index()
-               fig_q1_avg = px.bar(q1_avg , x = "States", y = "Transaction_amount", title = "AVERAGE", color_discrete_sequence= px.colors.sequential.Bluered_r)
+               fig_q1_avg = px.bar(q1_avg , x = "States", y = "Transaction_amount", title = "AVERAGE", color_discrete_sequence= px.colors.sequential.Aggrnyl)
                st.plotly_chart(fig_q1_avg, theme=None, use_container_width=True) 
         
 def top_charts_count_q1(df_csv):  
@@ -58,16 +58,16 @@ def top_charts_count_q1(df_csv):
                 
               q1_asce =group1.sort_values(by="Transaction_count", ascending=True).head(10) 
               q1_asce.reset_index(drop= True, inplace=True)   
-              fig_q1_asce = px.line(q1_asce , x = "States", y = "Transaction_count", title = "HIGHEST", height= 600, width = 600)
+              fig_q1_asce = px.line(q1_asce , x = "States", y = "Transaction_count", title = "HIGHEST", height= 600, width = 600, color_discrete_sequence= px.colors.sequential.Bluered_r)
               st.plotly_chart(fig_q1_asce, theme=None, use_container_width=True)
         
               q1_desc = group1.sort_values(by="Transaction_count", ascending=False).head(10) 
               q1_desc.reset_index(drop= True, inplace=True)
-              fig_q1_desc = px.line(q1_desc , x = "States", y = "Transaction_count", title = "LOWEST", height= 600, width = 600)
+              fig_q1_desc = px.line(q1_desc , x = "States", y = "Transaction_count", title = "LOWEST", height= 600, width = 600,color_discrete_sequence= px.colors.sequential.Bluered_r)
               st.plotly_chart(fig_q1_desc, theme=None, use_container_width=True )
         
               q1_avg = df_q1.groupby("States")["Transaction_count"].mean().reset_index()
-              fig_q1_avg = px.bar(q1_avg , x = "States", y = "Transaction_count", title = "AVERAGE")
+              fig_q1_avg = px.bar(q1_avg , x = "States", y = "Transaction_count", title = "AVERAGE", color_discrete_sequence= px.colors.sequential.Aggrnyl)
               st.plotly_chart(fig_q1_avg, theme=None, use_container_width=True) 
 
 def registerd_users(df_csv):
@@ -78,16 +78,16 @@ def registerd_users(df_csv):
 
               q1_asce =group1.sort_values(by="Registered_users", ascending=True).head(10) 
               q1_asce.reset_index(drop= True, inplace=True)   
-              fig_q1_asce = px.line(q1_asce , x = "States", y = "Registered_users", title = "HIGHEST", height= 600, width = 600)
+              fig_q1_asce = px.line(q1_asce , x = "States", y = "Registered_users", title = "HIGHEST", height= 600, width = 600, color_discrete_sequence= px.colors.sequential.Blackbody_r)
               st.plotly_chart(fig_q1_asce, theme=None, use_container_width=True)
 
               q1_desc = group1.sort_values(by="Registered_users", ascending=False).head(10) 
               q1_desc.reset_index(drop= True, inplace=True)
-              fig_q1_desc = px.line(q1_desc , x = "States", y = "Registered_users", title = "LOWEST", height= 600, width = 600)
+              fig_q1_desc = px.line(q1_desc , x = "States", y = "Registered_users", title = "LOWEST", height= 600, width = 600, color_discrete_sequence= px.colors.sequential.Blackbody_r)
               st.plotly_chart(fig_q1_desc, theme=None, use_container_width=True )
 
               q1_avg = df_q1.groupby("States")["Registered_users"].mean().reset_index()
-              fig_q1_avg = px.bar(q1_avg , x = "States", y = "Registered_users", title = "AVERAGE")
+              fig_q1_avg = px.bar(q1_avg , x = "States", y = "Registered_users", title = "AVERAGE",color_discrete_sequence= px.colors.sequential.Agsunset_r)
               st.plotly_chart(fig_q1_avg, theme=None, use_container_width=True) 
 
 def app_opens(df_csv):
