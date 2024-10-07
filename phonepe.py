@@ -230,8 +230,8 @@ elif select == "DATA EXPLORATION":
             tacy_func(df_ins_csv)
                 
         elif method_1 == "Aggrecated transaction":
-            df_ins_csv = pd.read_csv("phonepe_data/aggrecated/2aggrecated_transaction.csv")    
-            tacy_func(df_ins_csv)
+            df_trans_csv = pd.read_csv("phonepe_data/aggrecated/2aggrecated_transaction.csv")    
+            tacy_func(df_trans_csv)
 
             
         elif method_1 == "Aggrecated user":
