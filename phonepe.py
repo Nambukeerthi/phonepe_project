@@ -16,7 +16,7 @@ st.set_page_config(
     )
 # Data Exploration
 def tacy_func(df_csv):
-        df1 = df_csv  #pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv") 
+        df1 = df_csv   
         years = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
         tacy = df1[df1["Years"] == years ]
         tacy.drop(columns=['Unnamed: 0'], inplace=True)
@@ -230,7 +230,8 @@ elif select == "DATA EXPLORATION":
             tacy_func(df_ins_csv)
                 
         elif method_1 == "Aggrecated transaction":
-            pass
+            df_ins_csv = pd.read_csv("phonepe_data/aggrecated/2aggrecated_transaction.csv")    
+            tacy_func(df_ins_csv)
 
             
         elif method_1 == "Aggrecated user":
