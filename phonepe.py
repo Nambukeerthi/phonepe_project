@@ -15,19 +15,65 @@ st.set_page_config(
         layout = "wide"
     )
 # Data Exploration
-def tacy_func(year):
+def tacy_func():
         df1 = pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv") 
-        # df1["years"].unique()
+        years = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
         tacy = df1[df1["Years"] == year ]
-        # Drop a column named 'ColumnName'
-        #tacy.drop(" \ ", axis=1, inplace=True)
         tacy.drop(columns=['Unnamed: 0'], inplace=True)
         tacy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
         tacyg = tacy.groupby("States")[["Transaction_count","Transaction_amount"]].sum()
         # tacyg = tacy.groupby("States")[["Transaction_count","Transaction_amount"]].sum()
         tacyg.reset_index(inplace=True)
-        return tacyg 
+        
+        tacyg_test = tacyg 
+        st.dataframe(tacyg_test, use_container_width=True) 
+        fig_amount = px.bar(tacyg_test, x = "States", y = "Transaction_amount", title = f"{years} TRANSACTION AMOUNT",color_discrete_sequence= px.colors.sequential.Aggrnyl)
+        st.plotly_chart(fig_amount, theme=None, use_container_width=True)   
+        fig_count = px.bar(tacyg_test, x = "States", y = "Transaction_count", title = f"{years} TRANSACTION COUNT")
+        st.plotly_chart(fig_count, theme=None, use_container_width=True)
+            
+        # Map visualisation 
+        url = "https://gist.githubusercontent.com/jbrobst/56c13bbbf9d97d187fea01ca62ea5112/raw/e388c4cae20aa53cb5090210a42ebb9b765c0a36/india_states.geojson"    
+        response= requests.get(url)   
+        data1 = json.loads(response.content)    
+        states_name =[]
+        for i in data1["features"]:
+           states_name.append(i["properties"]["ST_NM"])          
+        states_name.sort()
+             
+        fig_india_1 = px.choropleth(
+        tacyg_test,
+        geojson=data1,
+        locations="States",
+        featureidkey="properties.ST_NM",
+        color="Transaction_amount",
+        color_continuous_scale="Rainbow",  # Corrected spelling from "color_continues_scale"
+        range_color=(tacyg_test["Transaction_amount"].min(), tacyg_test["Transaction_amount"].max()),
+        hover_name="States",
+        title=f"{years} TRANSACTION AMOUNT",  # Fixed string interpolation
+        fitbounds="locations",
+        height=700,
+        width=700
+            )
+        fig_india_1.update_geos(visible = False)
+        st.plotly_chart(fig_india_1, use_container_width=True)
 
+        fig_india_2 = px.choropleth(
+        tacyg_test,
+        geojson=data1,
+        locations="States",
+        featureidkey="properties.ST_NM",
+        color="Transaction_amount",
+        color_continuous_scale="Rainbow",  # Corrected spelling from "color_continues_scale"
+        range_color=(tacyg_test["Transaction_count"].min(), tacyg_test["Transaction_count"].max()),
+        hover_name="States",
+        title=f"{years} TRANSACTION COUNT",  # Fixed string interpolation
+        fitbounds="locations",
+        height=700,
+        width=700
+            )
+        fig_india_2.update_geos(visible = False)
+        st.plotly_chart(fig_india_2, use_container_width=True)
 
 # Top Charts
 def top_charts_amount_q1(df_csv):
@@ -180,61 +226,8 @@ elif select == "DATA EXPLORATION":
         method_1 = st.radio("select",["Aggrecated insurance","Aggrecated transaction","Aggrecated user"])        
         
         if method_1 == "Aggrecated insurance": 
-           
-            # Data frame visualisation    
-            df1 = pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv")
-            years = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())    
-            tacyg_test = tacy_func(years)
-            st.dataframe(tacyg_test, use_container_width=True) 
-            fig_amount = px.bar(tacyg_test, x = "States", y = "Transaction_amount", title = f"{years} TRANSACTION AMOUNT",color_discrete_sequence= px.colors.sequential.Aggrnyl)
-            # fig_amount.show()
-            st.plotly_chart(fig_amount, theme=None, use_container_width=True)   
-            fig_count = px.bar(tacyg_test, x = "States", y = "Transaction_count", title = f"{years} TRANSACTION COUNT")
-            st.plotly_chart(fig_count, theme=None, use_container_width=True)
-            
-            # Map visualisation 
-            url = "https://gist.githubusercontent.com/jbrobst/56c13bbbf9d97d187fea01ca62ea5112/raw/e388c4cae20aa53cb5090210a42ebb9b765c0a36/india_states.geojson"    
-            response= requests.get(url)   
-            data1 = json.loads(response.content)    
-            states_name =[]
-            for i in data1["features"]:
-              states_name.append(i["properties"]["ST_NM"])          
-            states_name.sort()
-             
-            fig_india_1 = px.choropleth(
-            tacyg_test,
-            geojson=data1,
-            locations="States",
-            featureidkey="properties.ST_NM",
-            color="Transaction_amount",
-            color_continuous_scale="Rainbow",  # Corrected spelling from "color_continues_scale"
-            range_color=(tacyg_test["Transaction_amount"].min(), tacyg_test["Transaction_amount"].max()),
-            hover_name="States",
-            title=f"{years} TRANSACTION AMOUNT",  # Fixed string interpolation
-            fitbounds="locations",
-            height=700,
-            width=700
-            )
-            fig_india_1.update_geos(visible = False)
-            st.plotly_chart(fig_india_1, use_container_width=True)
-
-            fig_india_2 = px.choropleth(
-            tacyg_test,
-            geojson=data1,
-            locations="States",
-            featureidkey="properties.ST_NM",
-            color="Transaction_amount",
-            color_continuous_scale="Rainbow",  # Corrected spelling from "color_continues_scale"
-            range_color=(tacyg_test["Transaction_count"].min(), tacyg_test["Transaction_count"].max()),
-            hover_name="States",
-            title=f"{years} TRANSACTION COUNT",  # Fixed string interpolation
-            fitbounds="locations",
-            height=700,
-            width=700
-            )
-            fig_india_2.update_geos(visible = False)
-            st.plotly_chart(fig_india_2, use_container_width=True)
-            
+            tacy_func()
+                
         elif method_1 == "Aggrecated transaction":
             pass
 
