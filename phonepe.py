@@ -18,6 +18,7 @@ st.set_page_config(
 
 # Data Exploration
 def tacy_func(df_csv):
+        
         df1 = df_csv   
         years = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
         tacy = df1[df1["Years"] == years ]
@@ -77,6 +78,7 @@ def tacy_func(df_csv):
         st.plotly_chart(fig_india_2, use_container_width=True)
 
 def transaction_type(df_csv):
+        
         df1 = df_csv   
         state = st.selectbox ("Select the State", df1["States"].unique())
         tacy = df1[df1["States"] == state ]
@@ -189,6 +191,7 @@ with st.sidebar:
     
     
 if select == "HOME":
+        
         st.markdown(" ")
         st.markdown(" ")
         st.markdown(" ")
