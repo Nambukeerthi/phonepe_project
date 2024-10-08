@@ -22,7 +22,6 @@ def tacy_func(df_csv):
         tacy.drop(columns=['Unnamed: 0'], inplace=True)
         tacy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
         tacyg = tacy.groupby("States")[["Transaction_count","Transaction_amount"]].sum()
-        # tacyg = tacy.groupby("States")[["Transaction_count","Transaction_amount"]].sum()
         tacyg.reset_index(inplace=True)
         
         tacyg_test = tacyg 
@@ -74,6 +73,19 @@ def tacy_func(df_csv):
             )
         fig_india_2.update_geos(visible = False)
         st.plotly_chart(fig_india_2, use_container_width=True)
+
+def transaction_type(df_csv):
+        df1 = df_csv   
+        state = st.selectbox ("Select the State", df1["States"].unique())
+        tacy = df1[df1["States"] == state ]
+        tacy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
+        tacyg = tacy.groupby("Transaction_type")[["Transaction_count","Transaction_amount"]].sum()
+        tacyg.reset_index(inplace=True)
+        fig_pie_1 = px.pie(data_frame = tacyg, names = "Transaction_type", values ="Transaction_amount", title = f"{state.upper()} TRANSACTION AMOUNT", hole =0.5 )
+        st.plotly_chart(fig_pie_1, use_container_width=True)
+        fig_pie_2 = px.pie(data_frame = tacyg, names = "Transaction_type", values ="Transaction_count", title = f"{state.upper()} TRANSACTION COUNT", hole =0.5 )
+        st.plotly_chart(fig_pie_2, use_container_width=True)
+
 
 # Top Charts
 def top_charts_amount_q1(df_csv):
@@ -232,7 +244,7 @@ elif select == "DATA EXPLORATION":
         elif method_1 == "Aggrecated transaction":
             df_trans_csv = pd.read_csv("phonepe_data/aggrecated/2aggrecated_transaction.csv")    
             tacy_func(df_trans_csv)
-
+            transaction_type(df_trans_csv)
             
         elif method_1 == "Aggrecated user":
             pass
