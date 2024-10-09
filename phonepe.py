@@ -272,7 +272,7 @@ elif select == "DATA EXPLORATION":
             tacy_func(df_trans_csv)
             transaction_type (df_trans_csv)
             
-        else method_1 == "Aggrecated user":
+        elif method_1 == "Aggrecated user":
             st.subheader("BRANDS")
             df_user_csv = pd.read_csv("phonepe_data/aggrecated/3aggrecated_user.csv")    
             user_type(df_user_csv)
@@ -282,22 +282,22 @@ elif select == "DATA EXPLORATION":
         method_2 = st.radio("select",["Map insurance","Map trasaction","Map user"])
         
         if method_2 == "Map insurance":
-            pass
+            st.subheader("MAP INSURANCE")
         elif method_2 == "Map trasaction":
-            pass
+            st.subheader("MAP TRANSACTION")
         elif method_2 == "Map user":
-            pass
+            st.subheader("MAP USER")
         
     with  tab3:
         
         method_3 = st.radio("select",["Top insurance","Top trasaction","Top user"])
         
         if method_3 == "Top insurance":
-            pass
+            st.subheader("TOP INSURANCE")
         elif method_3 == "Top trasaction":
-            pass
+            st.subheader("TOP TRANSACTION")
         elif method_3 == "Top user":
-            pass     
+            st.subheader("TOP USER")    
         
 elif select == "TOP CHARTS":           
     questions =  st.selectbox( "Select The Question", [ "1. Transaction Amount and Count of Aggrecated  Insurance",
