@@ -101,7 +101,7 @@ def user_type(df_csv):
         aguy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
         aguyg = pd.DataFrame(aguy.groupby("Brands")["Transaction_count"].sum())
         aguyg.reset_index(inplace=True)
-        aguyg_test =aguyg
+        aguyg_test = aguyg
         # st.dataframe(aguyg_test, use_container_width=True) 
         fig_bar_1 = px.bar(aguyg_test, x = "Brands", y = "Transaction_count", title = f"{years} BRANDS NAME AND TRANSACTION COUNT",color_discrete_sequence= px.colors.sequential.haline)
         st.plotly_chart(fig_bar_1, theme=None, use_container_width=True)   
