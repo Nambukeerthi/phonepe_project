@@ -79,7 +79,7 @@ def tacy_func(df_csv):
         
         
 def transaction_type(df_csv):
-        
+        st.subheader("STATEWISE TRANSACTION")
         df1 = df_csv   
         state = st.selectbox ("Select the State", df1["States"].unique())
         tacy = df1[df1["States"] == state ]
