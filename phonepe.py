@@ -95,14 +95,14 @@ def transaction_type(df_csv):
 def user_type(df_csv):
         
         df1 = df_csv   
-        #years = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
-        aguy = df1[df1["Years"] == 2020 ]
+        years = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
+        aguy = df1[df1["Years"] == years ]
         # aguy.drop(columns=['Unnamed: 0'], inplace=True)
         aguy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
         aguyg = pd.DataFrame(aguy.groupby("Brands")["Transaction_count"].sum())
         aguyg.reset_index(inplace=True)
         aguyg_test = aguyg
-        # st.dataframe(aguyg_test, use_container_width=True) 
+        st.dataframe(aguyg_test, use_container_width=True) 
         fig_bar_1 = px.bar(aguyg_test, x = "Brands", y = "Transaction_count", title = f"{years} BRANDS NAME AND TRANSACTION COUNT",color_discrete_sequence= px.colors.sequential.haline)
         st.plotly_chart(fig_bar_1, theme=None, use_container_width=True)   
         
