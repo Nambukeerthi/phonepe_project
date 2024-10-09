@@ -79,6 +79,7 @@ def tacy_func(df_csv):
         
         
 def transaction_type(df_csv):
+        
         st.subheader("STATEWISE TRANSACTION")
         df1 = df_csv   
         state = st.selectbox ("Select the State", df1["States"].unique())
@@ -92,10 +93,11 @@ def transaction_type(df_csv):
         st.plotly_chart(fig_pie_2, use_container_width=True)
 
 def user_type(df_csv):
+        
         df1 = df_csv   
         years = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
         aguy = df1[df1["Years"] == years ]
-        aguy.drop(columns=['Unnamed: 0'], inplace=True)
+        # aguy.drop(columns=['Unnamed: 0'], inplace=True)
         aguy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
         aguyg = pd.DataFrame(aguy.groupby("Brands")["Transaction_count"].sum())
         aguyg.reset_index(inplace=True)
