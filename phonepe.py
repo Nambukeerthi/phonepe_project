@@ -272,7 +272,8 @@ elif select == "DATA EXPLORATION":
             transaction_type (df_trans_csv)
             
         elif method_1 == "Aggrecated user":
-            pass
+            df_user_csv = pd.read_csv("phonepe_data/aggrecated/2aggrecated_transaction.csv")    
+            user_type(df_user_csv)
     
     with  tab2:
        
