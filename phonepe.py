@@ -76,7 +76,7 @@ def tacy_func(df_csv):
             )
         fig_india_2.update_geos(visible = False)
         st.plotly_chart(fig_india_2, use_container_width=True)
-        return tacyg_test
+        
         
 def transaction_type(df_csv):
         
@@ -253,8 +253,8 @@ elif select == "DATA EXPLORATION":
                 
         elif method_1 == "Aggrecated transaction":
             df_trans_csv = pd.read_csv("phonepe_data/aggrecated/2aggrecated_transaction.csv")    
-            yearst = tacy_func(df_trans_csv)
-            transaction_type (yearst) # df_trans_csv)
+            tacy_func(df_trans_csv)
+            transaction_type (df_trans_csv)
             
         elif method_1 == "Aggrecated user":
             pass
