@@ -94,6 +94,7 @@ def transaction_type(df_csv):
 
 def user_type(df_csv):
         
+        st.subheader("BRANDS TRANSACTION")
         df1 = df_csv   
         years = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
         aguy = df1[df1["Years"] == years ]
