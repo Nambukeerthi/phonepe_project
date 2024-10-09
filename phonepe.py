@@ -105,9 +105,7 @@ def user_type(df_csv):
         # st.dataframe(aguyg_test, use_container_width=True) 
         fig_bar_1 = px.bar(aguyg_test, x = "Brands", y = "Transaction_count", title = f"{years} BRANDS NAME AND TRANSACTION COUNT",color_discrete_sequence= px.colors.sequential.haline)
         st.plotly_chart(fig_bar_1, theme=None, use_container_width=True)   
-        # fig_count = px.bar(tacyg_test, x = "States", y = "Transaction_count", title = f"{years} TRANSACTION COUNT")
-        # st.plotly_chart(fig_count, theme=None, use_container_width=True) 
-
+        
 
 # Top Charts
 def top_charts_amount_q1(df_csv):
