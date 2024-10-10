@@ -268,6 +268,7 @@ elif select == "DATA EXPLORATION":
             tacy_func(df_ins_csv)
                 
         elif method_1 == "Aggrecated transaction":
+            st.subheader("AGGRECATED TRANSACTION")    
             df_trans_csv = pd.read_csv("phonepe_data/aggrecated/2aggrecated_transaction.csv")    
             tacy_func(df_trans_csv)
             transaction_type (df_trans_csv)
