@@ -96,8 +96,8 @@ def user_type(df_csv):
         
         st.subheader("BRANDS TRANSACTION")
         df1 = df_csv   
-        years = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
-        aguy = df1[df1["Years"] == years ]
+        year = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
+        aguy = df1[df1["Years"] == year ]
         # aguy.drop(columns=['Unnamed: 0'], inplace=True)
         aguy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
         aguyg = pd.DataFrame(aguy.groupby("Brands")["Transaction_count"].sum())
