@@ -261,7 +261,7 @@ elif select == "DATA EXPLORATION":
     
     with tab1:
        
-        method_1 = st.radio("select",("Aggrecated insurance","Aggrecated transaction","Aggrecated user"))        
+        method_1 = st.radio("select",["Aggrecated insurance","Aggrecated transaction","Aggrecated user"])        
         
         if method_1 == "Aggrecated insurance": 
             df_ins_csv = pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv")    
@@ -273,8 +273,8 @@ elif select == "DATA EXPLORATION":
             transaction_type (df_trans_csv)
             
         elif method_1 == "Aggrecated user":
-            df_user_csv = pd.read_csv("phonepe_data/aggrecated/3aggrecated_user.csv")    
-            user_type(df_user_csv)
+             df_user_csv = pd.read_csv("phonepe_data/aggrecated/3aggrecated_user.csv")    
+             user_type(df_user_csv)
     
     with  tab2:
        
