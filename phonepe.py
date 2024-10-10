@@ -273,16 +273,16 @@ elif select == "DATA EXPLORATION":
             transaction_type (df_trans_csv)
             
         elif method_1 == "Aggrecated user":
-             df_user_csv = pd.read_csv("phonepe_data/aggrecated/3aggrecated_user.csv")    
-             user_type(df_user_csv)
+            df_user_csv = pd.read_csv("phonepe_data/aggrecated/3aggrecated_user.csv")    
+            user_type(df_user_csv)
     
     with  tab2:
        
         method_2 = st.radio("select",["Map insurance","Map trasaction","Map user"])
         
         if method_2 == "Map insurance":
-            df_mins_csv = pd.read_csv("phonepe_data/map/1map_insurance.csv")    
-            tacy_func(df_mins_csv)
+             df_mins_csv = pd.read_csv("phonepe_data/map/1map_insurance.csv")    
+             tacy_func(df_mins_csv)
         elif method_2 == "Map trasaction":
             st.subheader("MAP TRANSACTION")
         elif method_2 == "Map user":
