@@ -267,14 +267,12 @@ elif select == "DATA EXPLORATION":
             df_ins_csv = pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv")    
             tacy_func(df_ins_csv)
                 
-        elif method_1 == "Aggrecated transaction":
-            st.subheader("AGGRECATED TRANSACTION")    
+        elif method_1 == "Aggrecated transaction":    
             df_trans_csv = pd.read_csv("phonepe_data/aggrecated/2aggrecated_transaction.csv")    
             tacy_func(df_trans_csv)
             transaction_type (df_trans_csv)
             
-        elif method_1 == "Aggrecated user"
-            st.subheader("BRANDS")
+        elif method_1 == "Aggrecated user":
             df_user_csv = pd.read_csv("phonepe_data/aggrecated/3aggrecated_user.csv")    
             user_type(df_user_csv)
     
