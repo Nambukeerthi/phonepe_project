@@ -107,6 +107,15 @@ def user_type(df_csv):
         fig_bar_1 = px.bar(aguyg_test, x = "Brands", y = "Transaction_count", title = f"{years} BRANDS NAME AND TRANSACTION COUNT",color_discrete_sequence= px.colors.sequential.haline, hover_name="Brands")
         st.plotly_chart(fig_bar_1, theme=None, use_container_width=True)   
         
+def user_states_type(df_csv)
+        st.subheader("STATEWISE BRANDS")
+        df1 = df_csv
+        state = st.selectbox ("Select the State", df1["States"].unique())
+        agus = df1[df1["States"] == state]
+        agus.reset_index(drop= True, inplace=True)
+        fig_line_1 = px.line(agus, x = "Brands", y = "Transaction_count", hover_data="Percentage", title = " BRANDS NAME AND TRANSACTION COUNT",color_discrete_sequence= px.colors.sequential.Meganta_r)
+        st.plotly_chart(fig_line_1, theme=None, use_container_width=True)
+
 
 # Top Charts
 def top_charts_amount_q1(df_csv):
