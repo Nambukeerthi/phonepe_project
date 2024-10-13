@@ -115,7 +115,7 @@ def user_states_type(df_csv):
         austgs =  pd.DataFrame(austg)
         austgs.reset_index(inplace=True)
         austgs_data = austgs[austgs["States"] == state]
-        fig_line_1 = px.line(austgs_data, x = "Brands", y = "Transaction_count", title = f"{state} STATE - BRANDS TRANSCATION",color_discrete_sequence= px.colors.sequential.haline)
+        fig_line_1 = px.line(austgs_data, x = "Brands", y = "Transaction_count", title = f"{state.upper()} STATE - BRANDS TRANSCATION",color_discrete_sequence= px.colors.sequential.haline)
         st.plotly_chart(fig_line_1, theme=None, use_container_width=True)
 
         
