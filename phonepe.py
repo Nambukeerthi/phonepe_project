@@ -20,7 +20,7 @@ st.set_page_config(
 def transaction_func(df_csv):
         
         df1 = df_csv   
-        years = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
+        years = st.slider("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
         tacy = df1[df1["Years"] == years ]
         tacy.drop(columns=['Unnamed: 0'], inplace=True)
         tacy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
