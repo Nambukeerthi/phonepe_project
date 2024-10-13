@@ -104,7 +104,7 @@ def user_type(df_csv):
         aguyg.reset_index(inplace=True)
         aguyg_test = aguyg
         st.dataframe(aguyg_test, use_container_width=True) 
-        fig_bar_1 = px.bar(aguyg_test, x = "Brands", y = "Transaction_count", title = f"{years} BRANDS NAME AND TRANSACTION COUNT",color_discrete_sequence= px.colors.sequential.haline)
+        fig_bar_1 = px.bar(aguyg_test, x = "Brands", y = "Transaction_count", title = f"{years} BRANDS NAME AND TRANSACTION COUNT",color_discrete_sequence= px.colors.sequential.haline, hover_name="Brands")
         st.plotly_chart(fig_bar_1, theme=None, use_container_width=True)   
         
 
