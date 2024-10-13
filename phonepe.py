@@ -113,7 +113,7 @@ def user_states_type(df_csv):
         state = st.selectbox ("Select the State", df1["States"].unique())
         agus = df1[df1["States"] == state]
         agus.reset_index(drop= True, inplace=True)
-        agus = pd.DataFrame(aguy.groupby("States")["Transaction_count"].sum())
+        agus = pd.DataFrame(agus.groupby("States")["Transaction_count"].sum())
         agus.reset_index(inplace=True)
         agusg_test = agus
         fig_line_1 = px.line(agusg_test, x = "Brands", y = "Transaction_count", hover_data="Percentage", title = " BRANDS NAME AND TRANSACTION COUNT",color_discrete_sequence= px.colors.sequential.Meganta_r)
