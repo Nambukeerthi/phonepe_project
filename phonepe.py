@@ -120,7 +120,7 @@ def user_states_type(df_csv):
 
         
 def map_transaction(df_csv):
-        
+        st.subheader("STATEWISE BRANDS")
 
 
 
