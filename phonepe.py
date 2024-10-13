@@ -119,6 +119,10 @@ def user_states_type(df_csv):
         st.plotly_chart(fig_line_1, theme=None, use_container_width=True)
 
         
+def map_transaction(df_csv):
+        
+
+
 
 
 # Top Charts
