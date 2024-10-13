@@ -111,13 +111,14 @@ def user_states_type(df_csv):
         st.subheader("STATEWISE BRANDS")
         df1 = df_csv
         state = st.selectbox ("Select the State", df1["States"].unique())
-        agus = df1[df1["States"] == state]
-        agus.reset_index(drop= True, inplace=True)
-        # agus = pd.DataFrame(agus.groupby("States")["Transaction_count"].sum())
-        #agus.reset_index(inplace=True)
-        #agusg_test = agus
-        fig_line_1 = px.line(agus, x = "Brands", y = "Transaction_count", hover_data="Percentage", title = " BRANDS NAME AND TRANSACTION COUNT",color_discrete_sequence= px.colors.sequential.Meganta_r)
+        austg = df1.groupby(['States', 'Brands'])['Transaction_count'].sum()
+        austgs =  pd.DataFrame(austg)
+        austgs.reset_index(inplace=True)
+        austgs_data = austgs[austgs["States"] == state]
+        fig_line_1 = px.line(austgs_data, x = "Brands", y = "Transaction_count", title = " BRANDS NAME AND TRANSACTION COUNT",color_discrete_sequence= px.colors.sequential.haline)
         st.plotly_chart(fig_line_1, theme=None, use_container_width=True)
+
+        
 
 
 # Top Charts
