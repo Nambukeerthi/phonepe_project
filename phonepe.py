@@ -17,7 +17,7 @@ st.set_page_config(
 
 
 # Data Exploration
-def tacy_func(df_csv):
+def transaction_func(df_csv):
         
         df1 = df_csv   
         years = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
@@ -122,7 +122,7 @@ def user_states_type(df_csv):
 
 
 # Top Charts
-def top_charts_amount_q1(df_csv):
+def top_charts_amount(df_csv):
         
        st.subheader("TRANSACTION AMOUNT")
        df_q1 = df_csv  # pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv") 
@@ -143,7 +143,7 @@ def top_charts_amount_q1(df_csv):
        fig_q1_avg = px.bar(q1_avg , x = "States", y = "Transaction_amount", title = "AVERAGE", color_discrete_sequence= px.colors.sequential.Aggrnyl)
        st.plotly_chart(fig_q1_avg, theme=None, use_container_width=True) 
         
-def top_charts_count_q1(df_csv): 
+def top_charts_count(df_csv): 
         
       st.subheader("TRANSACTION COUNT")
       df_q1 = df_csv # pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv")
@@ -278,11 +278,11 @@ elif select == "DATA EXPLORATION":
         
         if method_1 == "Aggrecated insurance": 
             df_ins_csv = pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv")    
-            tacy_func(df_ins_csv)
+            transaction_func(df_ins_csv)
                 
         elif method_1 == "Aggrecated transaction":    
             df_trans_csv = pd.read_csv("phonepe_data/aggrecated/2aggrecated_transaction.csv")    
-            tacy_func(df_trans_csv)
+            transaction_func(df_trans_csv)
             transaction_type (df_trans_csv)
             
         elif method_1 == "Aggrecated user":
@@ -295,7 +295,7 @@ elif select == "DATA EXPLORATION":
         
         if method_2 == "Map insurance":
              df_mins_csv = pd.read_csv("phonepe_data/map/1map_insurance.csv")    
-             tacy_func(df_mins_csv)
+             transaction_func(df_mins_csv)
         elif method_2 == "Map trasaction":
             st.subheader("MAP TRANSACTION")
         elif method_2 == "Map user":
@@ -327,38 +327,38 @@ elif select == "TOP CHARTS":
     if st.button("Submit"):
             if questions ==      "1. Transaction Amount and Count of Aggrecated  Insurance":
                                 df1_csv = pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv") 
-                                top_charts_amount_q1(df1_csv)
-                                top_charts_count_q1(df1_csv) 
+                                top_charts_amount(df1_csv)
+                                top_charts_count(df1_csv) 
                         
             elif questions ==    "2. Transaction Amount and Count of Map  Insurance":
                                 df2_csv = pd.read_csv("phonepe_data/map/1map_insurance.csv") 
-                                top_charts_amount_q1(df2_csv)
-                                top_charts_count_q1(df2_csv)
+                                top_charts_amount(df2_csv)
+                                top_charts_count(df2_csv)
                  
             elif questions ==    "3. Transaction Amount and Count of Top  Insurance":
                                 df3_csv = pd.read_csv("phonepe_data/top/1top_insurance.csv") 
-                                top_charts_amount_q1(df3_csv)
-                                top_charts_count_q1(df3_csv)
+                                top_charts_amount(df3_csv)
+                                top_charts_count(df3_csv)
                     
             elif questions ==    "4. Transaction Amount and Count of Aggrecated  Transaction":
                                 df4_csv = pd.read_csv("phonepe_data/aggrecated/2aggrecated_transaction.csv") 
-                                top_charts_amount_q1(df4_csv)
-                                top_charts_count_q1(df4_csv)
+                                top_charts_amount(df4_csv)
+                                top_charts_count(df4_csv)
 
             elif questions ==    "5. Transaction Amount and Count of Map  Transaction":
                                 df5_csv = pd.read_csv("phonepe_data/map/2map_transaction.csv") 
-                                top_charts_amount_q1(df5_csv)
-                                top_charts_count_q1(df5_csv)
+                                top_charts_amount(df5_csv)
+                                top_charts_count(df5_csv)
 
             elif questions ==    "6. Transaction Amount and Count of Top  Transaction":
                                 df6_csv = pd.read_csv("phonepe_data/top/2top_transaction.csv") 
-                                top_charts_amount_q1(df6_csv)
-                                top_charts_count_q1(df6_csv)
+                                top_charts_amount(df6_csv)
+                                top_charts_count(df6_csv)
 
             elif questions ==    "7. Transaction Count of Aggregated User":
                                 df7_csv = pd.read_csv("phonepe_data/aggrecated/3aggrecated_user.csv") 
-                                top_charts_amount_q1(df7_csv)
-                                top_charts_count_q1(df7_csv)
+                                top_charts_amount(df7_csv)
+                                top_charts_count(df7_csv)
 
             elif questions ==    "8. Registered users of Map User":
                                 df8_csv = pd.read_csv("phonepe_data/map/3map_user.csv") 
