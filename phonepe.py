@@ -107,7 +107,7 @@ def user_type(df_csv):
         fig_bar_1 = px.bar(aguyg_test, x = "Brands", y = "Transaction_count", title = f"{years} BRANDS NAME AND TRANSACTION COUNT",color_discrete_sequence= px.colors.sequential.haline, hover_name="Brands")
         st.plotly_chart(fig_bar_1, theme=None, use_container_width=True)   
         
-def user_states_type(df_csv)
+def user_states_type(df_csv):
         st.subheader("STATEWISE BRANDS")
         df1 = df_csv
         state = st.selectbox ("Select the State", df1["States"].unique())
@@ -284,7 +284,7 @@ elif select == "DATA EXPLORATION":
         elif method_1 == "Aggrecated user":
             df_user_csv = pd.read_csv("phonepe_data/aggrecated/3aggrecated_user.csv")    
             user_type(df_user_csv)
-    
+            user_states_type(df_user_csv)
     with  tab2:
        
         method_2 = st.radio("select",["Map insurance","Map trasaction","Map user"])
