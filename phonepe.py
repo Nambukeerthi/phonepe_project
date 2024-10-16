@@ -380,7 +380,7 @@ elif select == "DATA EXPLORATION":
         elif method_2 == "Map user":
             st.subheader("MAP USER")
         
-     with  tab3:
+      with  tab3:
         
         method_3 = st.radio("select",["Top insurance","Top trasaction","Top user"])
         
