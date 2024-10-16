@@ -118,7 +118,9 @@ def user_states_type(df_csv):
         austgs_data = austgs[austgs["States"] == state]
         fig_line_1 = px.line(austgs_data, x = "Brands", y = "Transaction_count", title = f"{state.upper()} STATE - BRANDS TRANSCATION",color_discrete_sequence= px.colors.sequential.haline, markers= True)
         st.plotly_chart(fig_line_1, theme=None, use_container_width=True)
+ 
 
+# map 
 def map_insurance(df_csv):
 
         df1 = df_csv   
