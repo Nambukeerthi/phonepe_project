@@ -366,7 +366,7 @@ elif select == "DATA EXPLORATION":
             user_type(df_user_csv)
             user_states_type(df_user_csv)
                 
-     with  tab2:
+  with  tab2:
        
         method_2 = st.radio("select",["Map insurance","Map trasaction","Map user"])
         
