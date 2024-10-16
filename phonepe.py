@@ -363,6 +363,7 @@ elif select == "DATA EXPLORATION":
             df_user_csv = pd.read_csv("phonepe_data/aggrecated/3aggrecated_user.csv")    
             user_type(df_user_csv)
             user_states_type(df_user_csv)
+                
     with  tab2:
        
         method_2 = st.radio("select",["Map insurance","Map trasaction","Map user"])
