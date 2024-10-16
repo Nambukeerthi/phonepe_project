@@ -119,65 +119,19 @@ def user_states_type(df_csv):
         st.plotly_chart(fig_line_1, theme=None, use_container_width=True)
 
         
-def map_isurance(df_csv):
-        st.subheader("STATEWISE BRANDS")
-        df1 = df_csv   
-        years = st.slider("Select the year", df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
-        tacy = df1[df1["Years"] == years ]
-        tacy.drop(columns=['Unnamed: 0'], inplace=True)
-        tacy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
-        tacyg = tacy.groupby("States")[["Transaction_count","Transaction_amount"]].sum()
-        tacyg.reset_index(inplace=True)
-        
-        tacyg_test = tacyg 
-        st.dataframe(tacyg_test, use_container_width=True) 
-        fig_amount = px.bar(tacyg_test, x = "States", y = "Transaction_amount", title = f"{years} TRANSACTION AMOUNT",color_discrete_sequence= px.colors.sequential.Aggrnyl)
-        st.plotly_chart(fig_amount, theme=None, use_container_width=True)   
-        fig_count = px.bar(tacyg_test, x = "States", y = "Transaction_count", title = f"{years} TRANSACTION COUNT")
-        st.plotly_chart(fig_count, theme=None, use_container_width=True)
-            
-        # Map visualisation 
-        url = "https://gist.githubusercontent.com/jbrobst/56c13bbbf9d97d187fea01ca62ea5112/raw/e388c4cae20aa53cb5090210a42ebb9b765c0a36/india_states.geojson"    
-        response= requests.get(url)   
-        data1 = json.loads(response.content)    
-        states_name =[]
-        for i in data1["features"]:
-           states_name.append(i["properties"]["ST_NM"])          
-        states_name.sort()
-             
-        fig_india_1 = px.choropleth(
-        tacyg_test,
-        geojson=data1,
-        locations="States",
-        featureidkey="properties.ST_NM",
-        color="Transaction_amount",
-        color_continuous_scale="Rainbow",  # Corrected spelling from "color_continues_scale"
-        range_color=(tacyg_test["Transaction_amount"].min(), tacyg_test["Transaction_amount"].max()),
-        hover_name="States",
-        title=f"{years} TRANSACTION AMOUNT",  # Fixed string interpolation
-        fitbounds="locations",
-        height=700,
-        width=700
-            )
-        fig_india_1.update_geos(visible = False)
-        st.plotly_chart(fig_india_1, use_container_width=True)
+def map_ins_dist(df_csv):
 
-        fig_india_2 = px.choropleth(
-        tacyg_test,
-        geojson=data1,
-        locations="States",
-        featureidkey="properties.ST_NM",
-        color="Transaction_amount",
-        color_continuous_scale="Rainbow",  # Corrected spelling from "color_continues_scale"
-        range_color=(tacyg_test["Transaction_count"].min(), tacyg_test["Transaction_count"].max()),
-        hover_name="States",
-        title=f"{years} TRANSACTION COUNT",  # Fixed string interpolation
-        fitbounds="locations",
-        height=700,
-        width=700
-            )
-        fig_india_2.update_geos(visible = False)
-        st.plotly_chart(fig_india_2, use_container_width=True)
+        st.subheader("STATEWISE TRANSACTION")
+        df1 = df_csv   
+        state = st.selectbox ("Select the State", df1["States"].unique())
+        midy = df1[df1["States"] == state ]
+        midy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
+        midyg = midy.groupby("Districts")[["Transaction_count","Transaction_amount"]].sum()
+        midyg.reset_index(inplace=True)
+        fig_bar_1 = px.bar(data_frame = midyg, names = "Districts", values ="Transaction_amount", title = f"{state.upper()} TRANSACTION AMOUNT", hole =0.5 )
+        st.plotly_chart(fig_bar_1, use_container_width=True)
+        fig_bar_2 = px.bar(data_frame = midyg, names = "Districts", values ="Transaction_count", title = f"{state.upper()} TRANSACTION COUNT", hole =0.5 )
+        st.plotly_chart(fig_bar_2, use_container_width=True)
 
 
 
@@ -356,6 +310,8 @@ elif select == "DATA EXPLORATION":
         if method_2 == "Map insurance":
              df_mins_csv = pd.read_csv("phonepe_data/map/1map_insurance.csv")    
              transaction_func(df_mins_csv)
+             map_ins_dist(df_mins_csv)   
+                
         elif method_2 == "Map trasaction":
             st.subheader("MAP TRANSACTION")
         elif method_2 == "Map user":
