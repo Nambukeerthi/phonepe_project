@@ -122,7 +122,7 @@ def user_states_type(df_csv):
 def map_isurance(df_csv):
         st.subheader("STATEWISE BRANDS")
         df1 = df_csv   
-        years = st.slider("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
+        years = st.slider("Select the year", df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
         tacy = df1[df1["Years"] == years ]
         tacy.drop(columns=['Unnamed: 0'], inplace=True)
         tacy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
