@@ -190,9 +190,9 @@ def map_ins_dist(df_csv):
         midy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
         midyg = midy.groupby("Districts")[["Transaction_count","Transaction_amount"]].sum()
         midyg.reset_index(inplace=True)
-        fig_bar_1 = px.bar(data_frame = midyg, names = "Districts", values ="Transaction_amount", title = f"{state.upper()} TRANSACTION AMOUNT")
+        fig_bar_1 = px.bar(data_frame = midyg, x = "Districts", y ="Transaction_amount", title = f"{state.upper()} TRANSACTION AMOUNT")
         st.plotly_chart(fig_bar_1, use_container_width=True)
-        fig_bar_2 = px.bar(data_frame = midyg, names = "Districts", values ="Transaction_count", title = f"{state.upper()} TRANSACTION COUNT")
+        fig_bar_2 = px.bar(data_frame = midyg, x = "Districts", y ="Transaction_count", title = f"{state.upper()} TRANSACTION COUNT")
         st.plotly_chart(fig_bar_2, use_container_width=True)
 
 
