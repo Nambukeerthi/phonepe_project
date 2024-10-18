@@ -187,15 +187,17 @@ def map_ins_dist(df_csv):
         st.subheader("STATEWISE TRANSACTION")
         df2 = df_csv   
         #state = st.selectbox ("Select the State",df2["States"].unique())
-        state = st.selectbox ("Select the State",'Andaman & Nicobar', 'Andhra Pradesh', 'Arunachal Pradesh',
-       'Assam', 'Bihar', 'Chandigarh', 'Chhattisgarh',
-       'Dadra and Nagar Haveli and Daman and Diu', 'Delhi', 'Goa',
-       'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jammu & Kashmir',
-       'Jharkhand', 'Karnataka', 'Kerala', 'Ladakh', 'Lakshadweep',
-       'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram',
-       'Nagaland', 'Odisha', 'Puducherry', 'Punjab', 'Rajasthan',
-       'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh',
-       'Uttarakhand', 'West Bengal')
+        state = st.selectbox ("Select the State",    
+        'Andaman & Nicobar', 'Andhra Pradesh', 'Arunachal Pradesh',
+        'Assam', 'Bihar', 'Chandigarh', 'Chhattisgarh',
+        'Dadra and Nagar Haveli and Daman and Diu', 'Delhi', 'Goa',
+        'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jammu & Kashmir',
+        'Jharkhand', 'Karnataka', 'Kerala', 'Ladakh', 'Lakshadweep',
+        'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram',
+        'Nagaland', 'Odisha', 'Puducherry', 'Punjab', 'Rajasthan',
+        'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh',
+        'Uttarakhand', 'West Bengal'      
+                             )
         midy = df2[df2["States"] == state ]
         midy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
         midyg = midy.groupby("Districts")[["Transaction_count","Transaction_amount"]].sum()
