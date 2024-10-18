@@ -121,9 +121,9 @@ def user_states_type(df_csv):
  
 
 # map 
-def map_insurance(df_csv):
+def map_insurance(df1_csv):
 
-        df2 = df_csv   
+        df2 = df1_csv   
         years = st.slider("Select the year", df2["Years"].min(), df2["Years"].max(), df2["Years"].min(), key="year_slider_1")
         #years = st.slider("Select the year", 2020, 2024, 2020)
         mity = df2[df2["Years"] == years ]
