@@ -129,7 +129,7 @@ def map_insurance(df_csv):
         mity = df2[df2["Years"] == years ]
         mity.drop(columns=['Unnamed: 0'], inplace=True)
         mity.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
-        mityg = tacy.groupby("States")[["Transaction_count","Transaction_amount"]].sum()
+        mityg = mity.groupby("States")[["Transaction_count","Transaction_amount"]].sum()
         mityg.reset_index(inplace=True)
         
         mityg_test = mityg 
@@ -148,64 +148,53 @@ def map_insurance(df_csv):
            states_name.append(i["properties"]["ST_NM"])          
         states_name.sort()
              
-        fig_india_1 = px.choropleth(
-        tacyg_test,
+        fig_india_ins_1= px.choropleth(
+        mityg_test,
         geojson=data1,
         locations="States",
         featureidkey="properties.ST_NM",
         color="Transaction_amount",
         color_continuous_scale="Rainbow",  # Corrected spelling from "color_continues_scale"
-        range_color=(tacyg_test["Transaction_amount"].min(), tacyg_test["Transaction_amount"].max()),
+        range_color=(mityg_test["Transaction_amount"].min(), mityg_test["Transaction_amount"].max()),
         hover_name="States",
         title=f"{years} TRANSACTION AMOUNT",  # Fixed string interpolation
         fitbounds="locations",
         height=700,
         width=700
             )
-        fig_india_1.update_geos(visible = False)
-        st.plotly_chart(fig_india_1, use_container_width=True)
+        fig_india_ins_1.update_geos(visible = False)
+        st.plotly_chart(fig_india_ins_1, use_container_width=True)
 
-        fig_india_2 = px.choropleth(
-        tacyg_test,
+        fig_india_ins_2 = px.choropleth(
+        mityg_test,
         geojson=data1,
         locations="States",
         featureidkey="properties.ST_NM",
         color="Transaction_amount",
         color_continuous_scale="Rainbow",  # Corrected spelling from "color_continues_scale"
-        range_color=(tacyg_test["Transaction_count"].min(), tacyg_test["Transaction_count"].max()),
+        range_color=(mityg_test["Transaction_count"].min(), mityg_test["Transaction_count"].max()),
         hover_name="States",
         title=f"{years} TRANSACTION COUNT",  # Fixed string interpolation
         fitbounds="locations",
         height=700,
         width=700
             )
-        fig_india_2.update_geos(visible = False)
-        st.plotly_chart(fig_india_2, use_container_width=True)        
+        fig_india_ins_2.update_geos(visible = False)
+        st.plotly_chart(fig_india_ins_2, use_container_width=True)        
         
 def map_ins_dist(df_csv):
 
         st.subheader("STATEWISE TRANSACTION")
         df2 = df_csv   
-        #state = st.selectbox ("Select the State",df2["States"].unique())
-        state = st.selectbox ("Select the State",    
-        'Andaman & Nicobar', 'Andhra Pradesh', 'Arunachal Pradesh',
-        'Assam', 'Bihar', 'Chandigarh', 'Chhattisgarh',
-        'Dadra and Nagar Haveli and Daman and Diu', 'Delhi', 'Goa',
-        'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jammu & Kashmir',
-        'Jharkhand', 'Karnataka', 'Kerala', 'Ladakh', 'Lakshadweep',
-        'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram',
-        'Nagaland', 'Odisha', 'Puducherry', 'Punjab', 'Rajasthan',
-        'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh',
-        'Uttarakhand', 'West Bengal'      
-                             )
+        #state = st.selectbox ("Select the State",df2["States"].unique(), key="year_slider_1")
         midy = df2[df2["States"] == state ]
         midy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
         midyg = midy.groupby("Districts")[["Transaction_count","Transaction_amount"]].sum()
         midyg.reset_index(inplace=True)
-        fig_bar_1 = px.bar(data_frame = midyg, x = "Districts", y ="Transaction_amount", title = f"{state.upper()} TRANSACTION AMOUNT")
-        st.plotly_chart(fig_bar_1, use_container_width=True)
-        fig_bar_2 = px.bar(data_frame = midyg, x = "Districts", y ="Transaction_count", title = f"{state.upper()} TRANSACTION COUNT")
-        st.plotly_chart(fig_bar_2, use_container_width=True)
+        fig_bar_ins_1 = px.bar(data_frame = midyg, x = "Districts", y ="Transaction_amount", title = f"{state.upper()} TRANSACTION AMOUNT")
+        st.plotly_chart(fig_bar_ins_1, use_container_width=True)
+        fig_bar_ins_2 = px.bar(data_frame = midyg, x = "Districts", y ="Transaction_count", title = f"{state.upper()} TRANSACTION COUNT")
+        st.plotly_chart(fig_bar_ins_2, use_container_width=True)
 
 
 
