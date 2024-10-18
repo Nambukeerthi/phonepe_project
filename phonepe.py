@@ -126,18 +126,18 @@ def map_insurance(df_csv):
         df2 = df_csv   
         years = st.slider("Select the year", df2["Years"].min(), df2["Years"].max(), df2["Years"].min(), key="year_slider_1")
         #years = st.slider("Select the year", 2020, 2024, 2020)
-        tacy = df2[df2["Years"] == years ]
-        tacy.drop(columns=['Unnamed: 0'], inplace=True)
-        tacy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
-        tacyg = tacy.groupby("States")[["Transaction_count","Transaction_amount"]].sum()
-        tacyg.reset_index(inplace=True)
+        mity = df2[df2["Years"] == years ]
+        mity.drop(columns=['Unnamed: 0'], inplace=True)
+        mity.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
+        mityg = tacy.groupby("States")[["Transaction_count","Transaction_amount"]].sum()
+        mityg.reset_index(inplace=True)
         
-        tacyg_test = tacyg 
-        st.dataframe(tacyg_test, use_container_width=True) 
-        fig_amount = px.bar(tacyg_test, x = "States", y = "Transaction_amount", title = f"{years} TRANSACTION AMOUNT",color_discrete_sequence= px.colors.sequential.Aggrnyl)
-        st.plotly_chart(fig_amount, theme=None, use_container_width=True)   
-        fig_count = px.bar(tacyg_test, x = "States", y = "Transaction_count", title = f"{years} TRANSACTION COUNT")
-        st.plotly_chart(fig_count, theme=None, use_container_width=True)
+        mityg_test = mityg 
+        st.dataframe(mityg_test, use_container_width=True) 
+        fig_amount_ins = px.bar(mityg_test, x = "States", y = "Transaction_amount", title = f"{years} TRANSACTION AMOUNT",color_discrete_sequence= px.colors.sequential.Aggrnyl)
+        st.plotly_chart(fig_amount_ins, theme=None, use_container_width=True)   
+        fig_count_ins = px.bar(mityg_test, x = "States", y = "Transaction_count", title = f"{years} TRANSACTION COUNT")
+        st.plotly_chart(fig_count_ins, theme=None, use_container_width=True)
             
         # Map visualisation 
         url = "https://gist.githubusercontent.com/jbrobst/56c13bbbf9d97d187fea01ca62ea5112/raw/e388c4cae20aa53cb5090210a42ebb9b765c0a36/india_states.geojson"    
