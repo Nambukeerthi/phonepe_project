@@ -58,7 +58,7 @@ def transaction_func(df_csv):
         width=700
             )
         fig_india_1.update_geos(visible = False)
-        st.plotly_chart(fig_india_1, use_container_width=True)
+        st.plotly_chart(fig_india_1, use_container_width=True, key="plotly_chart_india_1")
 
         fig_india_2 = px.choropleth(
         tacyg_test,
@@ -75,7 +75,7 @@ def transaction_func(df_csv):
         width=700
             )
         fig_india_2.update_geos(visible = False)
-        st.plotly_chart(fig_india_2, use_container_width=True)
+        st.plotly_chart(fig_india_2, use_container_width=True, key="plotly_chart_india_1")
         
         
 def transaction_type(df_csv):
