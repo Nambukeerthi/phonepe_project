@@ -124,8 +124,8 @@ def user_states_type(df_csv):
 def map_insurance(df_csv):
 
         df2 = df_csv   
-        #years = st.slider("Select the year", df2["Years"].min(), df2["Years"].max(), df2["Years"].min())
-        years = st.slider("Select the year", 2020, 2024, 2020)
+        years = st.slider("Select the year", df2["Years"].min(), df2["Years"].max(), df2["Years"].min(), key="year_slider_1")
+        #years = st.slider("Select the year", 2020, 2024, 2020)
         tacy = df2[df2["Years"] == years ]
         tacy.drop(columns=['Unnamed: 0'], inplace=True)
         tacy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
