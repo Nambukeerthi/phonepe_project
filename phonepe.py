@@ -123,9 +123,9 @@ def user_states_type(df_csv):
 # map 
 def map_insurance(df_csv):
 
-        df1 = df_csv   
-        years = st.slider("Select the year", df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
-        tacy = df1[df1["Years"] == years ]
+        df2 = df_csv   
+        years = st.slider("Select the year", df2["Years"].min(), df2["Years"].max(), df2["Years"].min())
+        tacy = df2[df2["Years"] == years ]
         tacy.drop(columns=['Unnamed: 0'], inplace=True)
         tacy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
         tacyg = tacy.groupby("States")[["Transaction_count","Transaction_amount"]].sum()
