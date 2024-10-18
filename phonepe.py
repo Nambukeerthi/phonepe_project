@@ -30,9 +30,9 @@ def transaction_func(df_csv):
         tacyg_test = tacyg 
         st.dataframe(tacyg_test, use_container_width=True) 
         fig_amount = px.bar(tacyg_test, x = "States", y = "Transaction_amount", title = f"{years} TRANSACTION AMOUNT",color_discrete_sequence= px.colors.sequential.Aggrnyl)
-        st.plotly_chart(fig_amount, theme=None, use_container_width=True)   
+        st.plotly_chart(fig_amount, theme=None, use_container_width=True, key="unique_plotly_chart")   
         fig_count = px.bar(tacyg_test, x = "States", y = "Transaction_count", title = f"{years} TRANSACTION COUNT")
-        st.plotly_chart(fig_count, theme=None, use_container_width=True)
+        st.plotly_chart(fig_count, theme=None, use_container_width=True, key="unique_plotly_chart")
             
         # Map visualisation 
         url = "https://gist.githubusercontent.com/jbrobst/56c13bbbf9d97d187fea01ca62ea5112/raw/e388c4cae20aa53cb5090210a42ebb9b765c0a36/india_states.geojson"    
