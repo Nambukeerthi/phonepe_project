@@ -193,6 +193,7 @@ def map_ins_dist(df_csv):
         st.plotly_chart(fig_bar_ins_2, use_container_width=True)
 
 def map_user(df_csv):
+        
         df2 = df_csv   
         years = st.slider("Select the year of given ", df2["Years"].min(), df2["Years"].max(), df2["Years"].min())
         muy = df2[df2["Years"] == years ]
@@ -204,6 +205,7 @@ def map_user(df_csv):
         st.plotly_chart(fig_line_2, theme=None, use_container_width=True)
 
 def map_user_dist(df_csv):
+        
         df2 = df_csv  
         state = st.selectbox ("Select the State of one",df2["States"].unique())
         musd = df2[df2["States"] == state ]
@@ -404,7 +406,7 @@ elif select == "DATA EXPLORATION":
             st.subheader("MAP USER")
             df_user_csv = pd.read_csv("phonepe_data/map/3map_user.csv")    
             map_user(df_user_csv)
-
+            map_user_dist(df_user_csv)
         
     with  tab3:
         
