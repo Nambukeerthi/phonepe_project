@@ -245,11 +245,11 @@ def Top_insurance(df_csv):
            states_name.append(i["properties"]["ST_NM"])          
         states_name.sort()
              
-        fig_india_ins_1= px.choropleth(
+        fig_india_ins_top_1= px.choropleth(
         tityg_test,
         geojson=data1,
         locations="States",
-        featureidkey="properties.ST_NM",
+        featureidkey="properties.ST_NM", 
         color="Transaction_amount",
         color_continuous_scale="Rainbow",  # Corrected spelling from "color_continues_scale"
         range_color=(tityg_test["Transaction_amount"].min(), mityg_test["Transaction_amount"].max()),
@@ -259,10 +259,10 @@ def Top_insurance(df_csv):
         height=700,
         width=700
             )
-        fig_india_ins_1.update_geos(visible = False)
-        st.plotly_chart(fig_india_ins_1, use_container_width=True, key="plotly_chart_india_1")
+        fig_india_ins_top_1.update_geos(visible = False)
+        st.plotly_chart(fig_india_ins_top_1, use_container_width=True, key="plotly_chart_india_1")
 
-        fig_india_ins_2 = px.choropleth(
+        fig_india_ins_top_2 = px.choropleth(
         tityg_test,
         geojson=data1,
         locations="States",
@@ -276,8 +276,8 @@ def Top_insurance(df_csv):
         height=700,
         width=700
             )
-        fig_india_ins_2.update_geos(visible = False)
-        st.plotly_chart(fig_india_ins_2, use_container_width=True, key="plotly_chart_india_2")
+        fig_india_ins_top_2.update_geos(visible = False)
+        st.plotly_chart(fig_india_ins_top_2, use_container_width=True, key="plotly_chart_india_2")
     
 
 
