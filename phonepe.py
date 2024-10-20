@@ -186,7 +186,7 @@ def map_ins_dist(df_csv):
 
         st.subheader("STATEWISE TRANSACTION")
         df2 = df_csv   
-        #state = st.selectbox ("Select the State",df2["States"].unique())
+        state = st.selectbox ("Select the State",df2["States"].unique())
         midy = df2[df2["States"] == state ]
         midy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
         midyg = midy.groupby("Districts")[["Transaction_count","Transaction_amount"]].sum()
