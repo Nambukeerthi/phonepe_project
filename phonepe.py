@@ -286,10 +286,10 @@ def top_ins_pin(df_csv):
         tip.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
         tipg = tip.groupby("Pincodes")[["Transaction_count","Transaction_amount"]].sum()
         tipg.reset_index(inplace=True)
-        fig_bar_ins_pin_1 = px.bar(data_frame = tipg, x = "Pincodes", y ="Transaction_amount", title = f"{state.upper()} TRANSACTION AMOUNT")
-        st.plotly_chart(fig_bar_ins_pin_1, use_container_width=True)
-        fig_bar_ins_pin_1 = px.bar(data_frame = tipg, x = "Pincodes", y ="Transaction_count", title = f"{state.upper()} TRANSACTION COUNT")
-        st.plotly_chart(fig_bar_ins_pin_1, use_container_width=True)
+        fig_pie_ins_pin_1 = px.pie(data_frame = tipg, names = "Pincodes", values ="Transaction_amount", title = f"{state.upper()} TRANSACTION AMOUNT", hole = 0.5)
+        st.plotly_chart(fig_pie_ins_pin_1, use_container_width=True)
+        fig_pie_ins_pin_1 = px.pie(data_frame = tipg, names = "Pincodes", values ="Transaction_count", title = f"{state.upper()} TRANSACTION COUNT" hole = 0.5)
+        st.plotly_chart(fig_pie_ins_pin_1, use_container_width=True)
 
 
 
@@ -491,19 +491,18 @@ elif select == "DATA EXPLORATION":
         method_3 = st.radio("select",["Top insurance","Top trasaction","Top user"])
         
         if method_3 == "Top insurance":
-            st.subheader("TOP INSURANCE")
             df_top_ins_csv = pd.read_csv("phonepe_data/top/1top_insurance.csv")    
             Top_insurance(df_top_ins_csv) 
             top_ins_pin(df_top_ins_csv)    
                 
         elif method_3 == "Top trasaction":
-            st.subheader("TOP TRANSACTION")
             df_top_trans_csv = pd.read_csv("phonepe_data/top/2top_transaction.csv")    
             Top_insurance(df_top_trans_csv) 
             top_ins_pin(df_top_trans_csv)   
                 
         elif method_3 == "Top user":
-            st.subheader("TOP USER")    
+            st.subheader("TOP USER")
+                
         
 elif select == "TOP CHARTS":           
     questions =  st.selectbox( "Select The Question", [ "1. Transaction Amount and Count of Aggrecated  Insurance",
