@@ -193,7 +193,7 @@ def map_ins_dist(df_csv):
         st.plotly_chart(fig_bar_ins_2, use_container_width=True)
 
 def map_user(df_csv):
-        df2 = df1_csv   
+        df2 = df_csv   
         years = st.slider("Select the year of given ", df2["Years"].min(), df2["Years"].max(), df2["Years"].min())
         muy = df2[df2["Years"] == years ]
         muy.drop(columns=['Unnamed: 0'], inplace=True)
