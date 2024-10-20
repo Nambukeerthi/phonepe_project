@@ -400,7 +400,7 @@ elif select == "DATA EXPLORATION":
             
         elif method_2 == "Map user":
             st.subheader("MAP USER")
-            df_user_csv = pd.read_csv("phonepe_data/map/3map_usae.csv")    
+            df_user_csv = pd.read_csv("phonepe_data/map/3map_user.csv")    
             map_user(df_user_csv)
 
         
