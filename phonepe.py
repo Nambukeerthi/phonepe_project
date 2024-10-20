@@ -281,14 +281,14 @@ def Top_insurance(df_csv):
     
 def top_ins_pin(df_csv):
         df2 = df_csv
-        pincode = st.selectbox ("Select the Pincode",df2["Pincodes"].unique())
-        tip = df2[df2["Pincodes"] == pincode ]
+        state = st.selectbox ("Select the Pincode",df2["States"].unique())
+        tip = df2[df2["States"] == state ]
         tip.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
         tipg = tip.groupby("Pincodes")[["Transaction_count","Transaction_amount"]].sum()
         tipg.reset_index(inplace=True)
-        fig_bar_ins_pin_1 = px.bar(data_frame = tipg, x = "Pincodes", y ="Transaction_amount", title = f"{pincode} TRANSACTION AMOUNT")
+        fig_bar_ins_pin_1 = px.bar(data_frame = tipg, x = "Pincodes", y ="Transaction_amount", title = f"{state.upper()} TRANSACTION AMOUNT")
         st.plotly_chart(fig_bar_ins_pin_1, use_container_width=True)
-        fig_bar_ins_pin_1 = px.bar(data_frame = tipg, x = "Pincodes", y ="Transaction_count", title = f"{pincode} TRANSACTION COUNT")
+        fig_bar_ins_pin_1 = px.bar(data_frame = tipg, x = "Pincodes", y ="Transaction_count", title = f"{state.upper()} TRANSACTION COUNT")
         st.plotly_chart(fig_bar_ins_pin_1, use_container_width=True)
 
 
