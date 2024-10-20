@@ -16,7 +16,8 @@ st.set_page_config(
     )
 
 
-# Data Exploration
+# DATA EXPLORATION
+# aggre
 def transaction_func(df_csv):
         
         df1 = df_csv   
@@ -80,7 +81,6 @@ def transaction_func(df_csv):
         
 def transaction_type(df_csv):
         
-        st.subheader("STATEWISE TRANSACTION")
         df1 = df_csv   
         state = st.selectbox ("Select the State", df1["States"].unique())
         tacy = df1[df1["States"] == state ]
@@ -94,7 +94,6 @@ def transaction_type(df_csv):
 
 def user_type(df_csv):
         
-        st.subheader("BRANDS TRANSACTION")
         df1 = df_csv   
         years = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
         aguy = df1[df1["Years"] == years ]
@@ -109,7 +108,6 @@ def user_type(df_csv):
         
 def user_states_type(df_csv):
         
-        st.subheader("STATEWISE BRANDS")
         df1 = df_csv
         state = st.selectbox ("Select the State", df1["States"].unique())
         austg = df1.groupby(['States', 'Brands'])['Transaction_count'].sum()
@@ -183,7 +181,6 @@ def map_insurance(df1_csv):
         
 def map_ins_dist(df_csv):
 
-        st.subheader("STATEWISE TRANSACTION")
         df2 = df_csv  
         state = st.selectbox ("Select the State",df2["States"].unique(), key="state_selectbox_1")
         midy = df2[df2["States"] == state ]
@@ -195,9 +192,30 @@ def map_ins_dist(df_csv):
         fig_bar_ins_2 = px.bar(data_frame = midyg, x = "Districts", y ="Transaction_count", title = f"{state.upper()} TRANSACTION COUNT")
         st.plotly_chart(fig_bar_ins_2, use_container_width=True)
 
+def map_user(df_csv):
+        df2 = df1_csv   
+        years = st.slider("Select the year of given ", df2["Years"].min(), df2["Years"].max(), df2["Years"].min(), key="year_slider_1")
+        muy = df2[df2["Years"] == years ]
+        muy.drop(columns=['Unnamed: 0'], inplace=True)
+        muy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
+        muyg = muy.groupby("States")[["Registered_users","Appopens"]].sum()
+        muyg.reset_index(inplace=True)
+        fig_line_2 = px.line(muyg, x = "States", y = ["Registered_users","Appopens"], markers= True)
+        st.plotly_chart(fig_line_2, theme=None, use_container_width=True)
 
+def map_user_dist(df_csv):
+        df2 = df_csv  
+        state = st.selectbox ("Select the State of one",df2["States"].unique())
+        musd = df2[df2["States"] == state ]
+        musd.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
+        musdg = musd.groupby("Districts")[["Registered_users","Appopens"]].sum()
+        musdg.reset_index(inplace=True)
+        fig_line_user_2 = px.line(data_frame = musdg, x = "Districts", y ="Registered_users", title = "REGISTERD USERS")
+        st.plotly_chart(fig_line_2, theme=None, use_container_width=True)
+        fig_line_user_3 = px.line(data_frame = musdg, x = "Districts", y ="Appopens", title = "APP OPENS")
+        st.plotly_chart(fig_line_3, theme=None, use_container_width=True)
 
-# Top Charts
+# TOP CHARTS
 def top_charts_amount(df_csv):
         
        st.subheader("TRANSACTION AMOUNT")
@@ -376,13 +394,15 @@ elif select == "DATA EXPLORATION":
              map_ins_dist(df_mins_csv)   
                 
         elif method_2 == "Map trasaction":
-            st.subheader("MAP TRANSACTION")
             df_trans_csv = pd.read_csv("phonepe_data/map/2map_transaction.csv")
             map_insurance(df_trans_csv)
             map_ins_dist(df_trans_csv)
             
         elif method_2 == "Map user":
             st.subheader("MAP USER")
+            df_user_csv = pd.read_csv("phonepe_data/map/3map_usae.csv")    
+            map_user(df_user_csv)
+
         
     with  tab3:
         
