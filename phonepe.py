@@ -190,7 +190,7 @@ def map_ins_dist(df_csv):
         for i, state in enumerate(df2["States"].unique()):
            state = st.selectbox(f"Select the State {i+1}", df2["States"].unique(), key=f"state_selectbox_{i}")
         
-        state = st.selectbox ("Select the State",df2["States"].unique())
+        #state = st.selectbox ("Select the State",df2["States"].unique())
         midy = df2[df2["States"] == state ]
         midy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
         midyg = midy.groupby("Districts")[["Transaction_count","Transaction_amount"]].sum()
