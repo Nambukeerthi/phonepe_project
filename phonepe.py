@@ -414,6 +414,9 @@ elif select == "DATA EXPLORATION":
         
         if method_3 == "Top insurance":
             st.subheader("TOP INSURANCE")
+            df_ins_csv = pd.read_csv("phonepe_data/top/1top_insurance.csv")    
+            transaction_func(df_ins_csv)    
+                
         elif method_3 == "Top trasaction":
             st.subheader("TOP TRANSACTION")
         elif method_3 == "Top user":
