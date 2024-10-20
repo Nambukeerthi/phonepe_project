@@ -188,7 +188,7 @@ def map_ins_dist(df_csv):
         df2 = df_csv  
         
         for i, state in enumerate(df["States"].unique()):
-           state = st.selectbox(f"Select the State {i+1}", df["States"].unique(), key=f"state_selectbox_{i}")
+           state = st.selectbox(f"Select the State {i+1}", df2["States"].unique(), key=f"state_selectbox_{i}")
         
         state = st.selectbox ("Select the State",df2["States"].unique())
         midy = df2[df2["States"] == state ]
