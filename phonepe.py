@@ -260,7 +260,7 @@ def Top_insurance(df_csv):
         width=700
             )
         fig_india_ins_top_1.update_geos(visible = False)
-        st.plotly_chart(fig_india_ins_top_1, use_container_width=True, key="plotly_chart_india_1")
+        st.plotly_chart(fig_india_ins_top_1, use_container_width=True)
 
         fig_india_ins_top_2 = px.choropleth(
         tityg_test,
@@ -277,7 +277,7 @@ def Top_insurance(df_csv):
         width=700
             )
         fig_india_ins_top_2.update_geos(visible = False)
-        st.plotly_chart(fig_india_ins_top_2, use_container_width=True, key="plotly_chart_india_2")
+        st.plotly_chart(fig_india_ins_top_2, use_container_width=True)
     
 
 
