@@ -125,7 +125,6 @@ def map_insurance(df1_csv):
 
         df2 = df1_csv   
         years = st.slider("Select the year", df2["Years"].min(), df2["Years"].max(), df2["Years"].min(), key="year_slider_1")
-        #years = st.slider("Select the year", 2020, 2024, 2020)
         mity = df2[df2["Years"] == years ]
         mity.drop(columns=['Unnamed: 0'], inplace=True)
         mity.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
@@ -186,10 +185,6 @@ def map_ins_dist(df_csv):
 
         st.subheader("STATEWISE TRANSACTION")
         df2 = df_csv  
-        
-        #for i, state in enumerate(df2["States"].unique()):
-           #state = st.selectbox(f"Select the State {i+1}", df2["States"].unique(), key=f"state_selectbox_{i}")
-        
         state = st.selectbox ("Select the State",df2["States"].unique(), key="state_selectbox_1")
         midy = df2[df2["States"] == state ]
         midy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
@@ -382,6 +377,10 @@ elif select == "DATA EXPLORATION":
                 
         elif method_2 == "Map trasaction":
             st.subheader("MAP TRANSACTION")
+            df_trans_csv = pd.read_csv("phonepe_data/map/2map_transaction.csv")
+            map_insurance(df_trans_csv)
+            map_ins_dist(df_trans_csv)
+            
         elif method_2 == "Map user":
             st.subheader("MAP USER")
         
