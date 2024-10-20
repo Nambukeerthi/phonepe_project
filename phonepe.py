@@ -119,9 +119,9 @@ def user_states_type(df_csv):
  
 
 # map 
-def map_insurance(df1_csv):
+def map_insurance(df_csv):
 
-        df2 = df1_csv   
+        df2 = df_csv   
         years = st.slider("Select the year of one ", df2["Years"].min(), df2["Years"].max(), df2["Years"].min(), key="year_slider_1")
         mity = df2[df2["Years"] == years ]
         mity.drop(columns=['Unnamed: 0'], inplace=True)
@@ -221,7 +221,7 @@ def map_user_dist(df_csv):
 # top
 def Top_insurance(df_csv):
         
-        df2 = df1_csv   
+        df2 = df_csv   
         years = st.slider("Select the years one ", df2["Years"].min(), df2["Years"].max(), df2["Years"].min(), key="year_slider_1")
         tity = df2[df2["Years"] == years ]
         tity.drop(columns=['Unnamed: 0'], inplace=True)
