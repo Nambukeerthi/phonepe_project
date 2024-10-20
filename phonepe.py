@@ -280,6 +280,7 @@ def Top_insurance(df_csv):
         st.plotly_chart(fig_india_ins_top_2, use_container_width=True)
     
 def top_ins_pin(df_csv):
+        
         df2 = df_csv
         state = st.selectbox ("Select One State",df2["States"].unique())
         tip = df2[df2["States"] == state ]
@@ -291,6 +292,19 @@ def top_ins_pin(df_csv):
         fig_pie_ins_pin_1 = px.pie(data_frame = tipg, names = "Pincodes", values ="Transaction_count", title = f"{state.upper()} TRANSACTION COUNT", hole = 0.5)
         st.plotly_chart(fig_pie_ins_pin_1, use_container_width=True)
 
+def top_user(df_csv):
+
+        df2 = df_csv   
+        years = st.slider("Select the Given Year ", df2["Years"].min(), df2["Years"].max(), df2["Years"].min())
+        tuy = df2[df2["Years"] == years ]
+        tuy.drop(columns=['Unnamed: 0'], inplace=True)
+        tuy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
+        tuyg = pd.DataFrame(tuy.groupby(["States","Quarter"])["Rergistered_users"].sum())
+        tuyg.reset_index(inplace=True)
+        fig_bar_top_user = px.bar(tuyg, x = "States", y = "Rergistered_users", color = "Quarter" ,color_discrete_sequence = px.colors.sequential.Burgyl, hover_name = "States")
+        st.plotly_chart(fig_bar_top_user, theme=None, use_container_width=True)
+
+        
 
 
 
