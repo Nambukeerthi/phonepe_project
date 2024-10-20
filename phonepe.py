@@ -303,13 +303,11 @@ def top_user(df_csv):
         tuyg.reset_index(inplace=True)
         fig_bar_top_user = px.bar(tuyg, x = "States", y = "Registered_users", color = "Quarter" ,color_discrete_sequence = px.colors.sequential.Burgyl, hover_name = "States")
         st.plotly_chart(fig_bar_top_user, theme=None, use_container_width=True)
-
-        
-
-
-
-
-
+        state = st.selectbox("Select the Given State", tuyg["States"].unique())
+        tuygs = tuyg[tuyg["States"] == state
+        tuygs.reset_index(drop=True, inplace =True)
+        fig_bar_top_user_1 = px.bar(tuygs, x= "Quarter", y="Registered_users", color= "Registered_users", title= "REGISTRED USERS", color_continous_scale = px.colors.sequential.Megenta, hover_name= "Pincodes")
+        st.plotly_chart(fig_bar_top_user_1, theme=None, use_container_width=True)
 
 
 # TOP CHARTS
