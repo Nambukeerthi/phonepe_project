@@ -21,7 +21,7 @@ st.set_page_config(
 def transaction_func(df_csv):
         
         df1 = df_csv   
-        years = st.slider("Select the year of below ", df1["Years"].min(), df1["Years"].max(), df1["Years"].min(), key = "year_slider_1" )
+        years = st.slider("Select the year of below ", df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
         tacy = df1[df1["Years"] == years ]
         tacy.drop(columns=['Unnamed: 0'], inplace=True)
         tacy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
@@ -218,6 +218,77 @@ def map_user_dist(df_csv):
         st.plotly_chart(fig_line_user_2, theme=None, use_container_width=True)
         fig_line_user_3 = px.line(data_frame = musdag, x = "Districts", y ="Appopens", title = "APP OPENS", markers= True)
         st.plotly_chart(fig_line_user_3, theme=None, use_container_width=True)
+# top
+def Top_insurance(df_csv):
+        
+        df2 = df1_csv   
+        years = st.slider("Select the years one ", df2["Years"].min(), df2["Years"].max(), df2["Years"].min(), key="year_slider_1")
+        tity = df2[df2["Years"] == years ]
+        tity.drop(columns=['Unnamed: 0'], inplace=True)
+        tity.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
+        tityg = tity.groupby("States")[["Transaction_count","Transaction_amount"]].sum()
+        tityg.reset_index(inplace=True)
+        
+        tityg_test = tityg 
+        st.dataframe(tityg_test, use_container_width=True) 
+        fig_amount_ins_top = px.bar(tityg_test, x = "States", y = "Transaction_amount", title = f"{years} TRANSACTION AMOUNT",color_discrete_sequence= px.colors.sequential.Aggrnyl)
+        st.plotly_chart(fig_amount_ins_top, theme=None, use_container_width=True, key="unique_plotly_chart")   
+        fig_count_ins_top = px.bar(tityg_test, x = "States", y = "Transaction_count", title = f"{years} TRANSACTION COUNT")
+        st.plotly_chart(fig_count_ins_top, theme=None, use_container_width=True, key="plotly_chart_1")
+            
+        # Map visualisation 
+        url = "https://gist.githubusercontent.com/jbrobst/56c13bbbf9d97d187fea01ca62ea5112/raw/e388c4cae20aa53cb5090210a42ebb9b765c0a36/india_states.geojson"    
+        response= requests.get(url)   
+        data1 = json.loads(response.content)    
+        states_name =[]
+        for i in data1["features"]:
+           states_name.append(i["properties"]["ST_NM"])          
+        states_name.sort()
+             
+        fig_india_ins_1= px.choropleth(
+        tityg_test,
+        geojson=data1,
+        locations="States",
+        featureidkey="properties.ST_NM",
+        color="Transaction_amount",
+        color_continuous_scale="Rainbow",  # Corrected spelling from "color_continues_scale"
+        range_color=(tityg_test["Transaction_amount"].min(), mityg_test["Transaction_amount"].max()),
+        hover_name="States",
+        title=f"{years} TRANSACTION AMOUNT",  # Fixed string interpolation
+        fitbounds="locations",
+        height=700,
+        width=700
+            )
+        fig_india_ins_1.update_geos(visible = False)
+        st.plotly_chart(fig_india_ins_1, use_container_width=True, key="plotly_chart_india_1")
+
+        fig_india_ins_2 = px.choropleth(
+        tityg_test,
+        geojson=data1,
+        locations="States",
+        featureidkey="properties.ST_NM",
+        color="Transaction_amount",
+        color_continuous_scale="Rainbow",  # Corrected spelling from "color_continues_scale"
+        range_color=(tityg_test["Transaction_count"].min(), mityg_test["Transaction_count"].max()),
+        hover_name="States",
+        title=f"{years} TRANSACTION COUNT",  # Fixed string interpolation
+        fitbounds="locations",
+        height=700,
+        width=700
+            )
+        fig_india_ins_2.update_geos(visible = False)
+        st.plotly_chart(fig_india_ins_2, use_container_width=True, key="plotly_chart_india_2")
+    
+
+
+
+
+
+
+
+
+
+
 
 # TOP CHARTS
 def top_charts_amount(df_csv):
@@ -415,7 +486,7 @@ elif select == "DATA EXPLORATION":
         if method_3 == "Top insurance":
             st.subheader("TOP INSURANCE")
             df_ins_csv = pd.read_csv("phonepe_data/top/1top_insurance.csv")    
-            transaction_func(df_ins_csv)    
+            Top_insurance(df_ins_csv)    
                 
         elif method_3 == "Top trasaction":
             st.subheader("TOP TRANSACTION")
