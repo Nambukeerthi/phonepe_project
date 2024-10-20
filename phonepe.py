@@ -222,7 +222,7 @@ def map_user_dist(df_csv):
 def Top_insurance(df_csv):
         
         df2 = df_csv   
-        years = st.slider("Select the years one ", df2["Years"].min(), df2["Years"].max(), df2["Years"].min(), key="year_slider_1")
+        years = st.slider("Select the years one ", df2["Years"].min(), df2["Years"].max(), df2["Years"].min())
         tity = df2[df2["Years"] == years ]
         tity.drop(columns=['Unnamed: 0'], inplace=True)
         tity.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
