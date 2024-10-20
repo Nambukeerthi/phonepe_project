@@ -185,7 +185,11 @@ def map_insurance(df1_csv):
 def map_ins_dist(df_csv):
 
         st.subheader("STATEWISE TRANSACTION")
-        df2 = df_csv   
+        df2 = df_csv  
+        
+        for i, state in enumerate(df["States"].unique()):
+           state = st.selectbox(f"Select the State {i+1}", df["States"].unique(), key=f"state_selectbox_{i}")
+        
         state = st.selectbox ("Select the State",df2["States"].unique())
         midy = df2[df2["States"] == state ]
         midy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
