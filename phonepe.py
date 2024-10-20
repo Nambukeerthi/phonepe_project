@@ -288,7 +288,7 @@ def top_ins_pin(df_csv):
         tipg.reset_index(inplace=True)
         fig_pie_ins_pin_1 = px.pie(data_frame = tipg, names = "Pincodes", values ="Transaction_amount", title = f"{state.upper()} TRANSACTION AMOUNT", hole = 0.5)
         st.plotly_chart(fig_pie_ins_pin_1, use_container_width=True)
-        fig_pie_ins_pin_1 = px.pie(data_frame = tipg, names = "Pincodes", values ="Transaction_count", title = f"{state.upper()} TRANSACTION COUNT" hole = 0.5)
+        fig_pie_ins_pin_1 = px.pie(data_frame = tipg, names = "Pincodes", values ="Transaction_count", title = f"{state.upper()} TRANSACTION COUNT", hole = 0.5)
         st.plotly_chart(fig_pie_ins_pin_1, use_container_width=True)
 
 
