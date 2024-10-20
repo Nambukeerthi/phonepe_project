@@ -482,7 +482,6 @@ elif select == "DATA EXPLORATION":
             map_ins_dist(df_map_trans_csv)
             
         elif method_2 == "Map user":
-            st.subheader("MAP USER")
             df_map_user_csv = pd.read_csv("phonepe_data/map/3map_user.csv")    
             map_user(df_map_user_csv)
             map_user_dist(df_map_user_csv)
@@ -499,6 +498,10 @@ elif select == "DATA EXPLORATION":
                 
         elif method_3 == "Top trasaction":
             st.subheader("TOP TRANSACTION")
+            df_top_trans_csv = pd.read_csv("phonepe_data/top/2top_transaction.csv")    
+            Top_insurance(df_top_trans_csv) 
+            top_ins_pin(df_top_trans_csv)   
+                
         elif method_3 == "Top user":
             st.subheader("TOP USER")    
         
