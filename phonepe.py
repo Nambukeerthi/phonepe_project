@@ -281,7 +281,7 @@ def Top_insurance(df_csv):
     
 def top_ins_pin(df_csv):
         df2 = df_csv
-        state = st.selectbox ("Select the Pincode",df2["States"].unique())
+        state = st.selectbox ("Select One State",df2["States"].unique())
         tip = df2[df2["States"] == state ]
         tip.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
         tipg = tip.groupby("Pincodes")[["Transaction_count","Transaction_amount"]].sum()
