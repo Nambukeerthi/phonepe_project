@@ -194,7 +194,7 @@ def map_ins_dist(df_csv):
 
 def map_user(df_csv):
         df2 = df1_csv   
-        years = st.slider("Select the year of given ", df2["Years"].min(), df2["Years"].max(), df2["Years"].min(), key="year_slider_1")
+        years = st.slider("Select the year of given ", df2["Years"].min(), df2["Years"].max(), df2["Years"].min())
         muy = df2[df2["Years"] == years ]
         muy.drop(columns=['Unnamed: 0'], inplace=True)
         muy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
