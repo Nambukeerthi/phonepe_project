@@ -286,9 +286,9 @@ def top_ins_pin(df_csv):
         tip.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
         tipg = tip.groupby("Pincodes")[["Transaction_count","Transaction_amount"]].sum()
         tipg.reset_index(inplace=True)
-        fig_bar_ins_pin_1 = px.bar(data_frame = tipg, x = "Pincodes", y ="Transaction_amount", title = f"{state.upper()} TRANSACTION AMOUNT")
+        fig_bar_ins_pin_1 = px.bar(data_frame = tipg, x = "Pincodes", y ="Transaction_amount", title = f"{pincode} TRANSACTION AMOUNT")
         st.plotly_chart(fig_bar_ins_pin_1, use_container_width=True)
-        fig_bar_ins_pin_1 = px.bar(data_frame = tipg, x = "Pincodes", y ="Transaction_count", title = f"{state.upper()} TRANSACTION COUNT")
+        fig_bar_ins_pin_1 = px.bar(data_frame = tipg, x = "Pincodes", y ="Transaction_count", title = f"{pincode} TRANSACTION COUNT")
         st.plotly_chart(fig_bar_ins_pin_1, use_container_width=True)
 
 
