@@ -517,7 +517,7 @@ elif select == "DATA EXPLORATION":
         elif method_3 == "Top user":
             st.subheader("TOP USER")
             df_top_user_csv = pd.read_csv("phonepe_data/top/3top_user.csv")    
-            top_user(df_user_csv)    
+            top_user(df_top_user_csv)    
                 
         
 elif select == "TOP CHARTS":           
