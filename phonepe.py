@@ -252,7 +252,7 @@ def Top_insurance(df_csv):
         featureidkey="properties.ST_NM", 
         color="Transaction_amount",
         color_continuous_scale="Rainbow",  # Corrected spelling from "color_continues_scale"
-        range_color=(tityg_test["Transaction_amount"].min(), mityg_test["Transaction_amount"].max()),
+        range_color=(tityg_test["Transaction_amount"].min(), tityg_test["Transaction_amount"].max()),
         hover_name="States",
         title=f"{years} TRANSACTION AMOUNT",  # Fixed string interpolation
         fitbounds="locations",
@@ -269,7 +269,7 @@ def Top_insurance(df_csv):
         featureidkey="properties.ST_NM",
         color="Transaction_amount",
         color_continuous_scale="Rainbow",  # Corrected spelling from "color_continues_scale"
-        range_color=(tityg_test["Transaction_count"].min(), mityg_test["Transaction_count"].max()),
+        range_color=(tityg_test["Transaction_count"].min(), tityg_test["Transaction_count"].max()),
         hover_name="States",
         title=f"{years} TRANSACTION COUNT",  # Fixed string interpolation
         fitbounds="locations",
