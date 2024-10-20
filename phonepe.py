@@ -21,7 +21,7 @@ st.set_page_config(
 def transaction_func(df_csv):
         
         df1 = df_csv   
-        years = st.slider("Select the year of below ", df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
+        years = st.slider("Select the Year of Below ", df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
         tacy = df1[df1["Years"] == years ]
         tacy.drop(columns=['Unnamed: 0'], inplace=True)
         tacy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
@@ -95,7 +95,7 @@ def transaction_type(df_csv):
 def user_type(df_csv):
         
         df1 = df_csv   
-        years = st.slider ("Select the year of given",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
+        years = st.slider ("Select the Year of Given",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
         aguy = df1[df1["Years"] == years ]
         # aguy.drop(columns=['Unnamed: 0'], inplace=True)
         aguy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
@@ -122,7 +122,7 @@ def user_states_type(df_csv):
 def map_insurance(df_csv):
 
         df2 = df_csv   
-        years = st.slider("Select the year of one ", df2["Years"].min(), df2["Years"].max(), df2["Years"].min(), key="year_slider_1")
+        years = st.slider("Select the Year of One ", df2["Years"].min(), df2["Years"].max(), df2["Years"].min(), key="year_slider_1")
         mity = df2[df2["Years"] == years ]
         mity.drop(columns=['Unnamed: 0'], inplace=True)
         mity.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
@@ -195,7 +195,7 @@ def map_ins_dist(df_csv):
 def map_user(df_csv):
         
         df2 = df_csv   
-        years = st.slider("Select the year of given ", df2["Years"].min(), df2["Years"].max(), df2["Years"].min())
+        years = st.slider("Select the Year of Given ", df2["Years"].min(), df2["Years"].max(), df2["Years"].min())
         muy = df2[df2["Years"] == years ]
         muy.drop(columns=['Unnamed: 0'], inplace=True)
         muy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
@@ -207,7 +207,7 @@ def map_user(df_csv):
 def map_user_dist(df_csv):
         
         df2 = df_csv  
-        state = st.selectbox ("Select the State of one",df2["States"].unique())
+        state = st.selectbox ("Select the State of One",df2["States"].unique())
         musd = df2[df2["States"] == state ]
         musd.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
         musdrg = musd.groupby("Districts")[["Registered_users"]].sum()
@@ -222,7 +222,7 @@ def map_user_dist(df_csv):
 def Top_insurance(df_csv):
         
         df2 = df_csv   
-        years = st.slider("Select the years one ", df2["Years"].min(), df2["Years"].max(), df2["Years"].min())
+        years = st.slider("Select the Year's One ", df2["Years"].min(), df2["Years"].max(), df2["Years"].min())
         tity = df2[df2["Years"] == years ]
         tity.drop(columns=['Unnamed: 0'], inplace=True)
         tity.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
@@ -279,9 +279,17 @@ def Top_insurance(df_csv):
         fig_india_ins_top_2.update_geos(visible = False)
         st.plotly_chart(fig_india_ins_top_2, use_container_width=True)
     
-
-
-
+def top_ins_pin(df_csv):
+        df2 = df_csv
+        pincode = st.selectbox ("Select the Pincode",df2["States"].unique()
+        tip = df2[df2["States"] == pincode ]
+        tip.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
+        tipg = tip.groupby("Pincodes")[["Transaction_count","Transaction_amount"]].sum()
+        tipg.reset_index(inplace=True)
+        fig_bar_ins_pin_1 = px.bar(data_frame = tipg, x = "Pincodes", y ="Transaction_amount", title = f"{state.upper()} TRANSACTION AMOUNT")
+        st.plotly_chart(fig_bar_ins_pin_1, use_container_width=True)
+        fig_bar_ins_pin_1 = px.bar(data_frame = tipg, x = "Pincodes", y ="Transaction_count", title = f"{state.upper()} TRANSACTION COUNT")
+        st.plotly_chart(fig_bar_ins_pin_1, use_container_width=True)
 
 
 
@@ -446,38 +454,38 @@ elif select == "DATA EXPLORATION":
         method_1 = st.radio("select",["Aggrecated insurance","Aggrecated transaction","Aggrecated user"])        
         
         if method_1 == "Aggrecated insurance": 
-            df_ins_csv = pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv")    
-            transaction_func(df_ins_csv)
+            df_agg_ins_csv = pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv")    
+            transaction_func(df_agg_ins_csv)
                 
         elif method_1 == "Aggrecated transaction":    
-            df_trans_csv = pd.read_csv("phonepe_data/aggrecated/2aggrecated_transaction.csv")    
-            transaction_func(df_trans_csv)
-            transaction_type (df_trans_csv)
+            df_agg_trans_csv = pd.read_csv("phonepe_data/aggrecated/2aggrecated_transaction.csv")    
+            transaction_func(df_agg_trans_csv)
+            transaction_type (df_agg_trans_csv)
             
         elif method_1 == "Aggrecated user":
-            df_user_csv = pd.read_csv("phonepe_data/aggrecated/3aggrecated_user.csv")    
-            user_type(df_user_csv)
-            user_states_type(df_user_csv)
+            df_agg_user_csv = pd.read_csv("phonepe_data/aggrecated/3aggrecated_user.csv")    
+            user_type(df_agg_user_csv)
+            user_states_type(df_agg_user_csv)
                 
     with  tab2:
        
         method_2 = st.radio("select",["Map insurance","Map trasaction","Map user"])
         
         if method_2 == "Map insurance":
-             df_mins_csv = pd.read_csv("phonepe_data/map/1map_insurance.csv")    
-             map_insurance(df_mins_csv)
-             map_ins_dist(df_mins_csv)   
+             df_map_mins_csv = pd.read_csv("phonepe_data/map/1map_insurance.csv")    
+             map_insurance(df_map_mins_csv)
+             map_ins_dist(df_map_mins_csv)   
                 
         elif method_2 == "Map trasaction":
-            df_trans_csv = pd.read_csv("phonepe_data/map/2map_transaction.csv")
-            map_insurance(df_trans_csv)
-            map_ins_dist(df_trans_csv)
+            df_map_trans_csv = pd.read_csv("phonepe_data/map/2map_transaction.csv")
+            map_insurance(df_map_trans_csv)
+            map_ins_dist(df_map_trans_csv)
             
         elif method_2 == "Map user":
             st.subheader("MAP USER")
-            df_user_csv = pd.read_csv("phonepe_data/map/3map_user.csv")    
-            map_user(df_user_csv)
-            map_user_dist(df_user_csv)
+            df_map_user_csv = pd.read_csv("phonepe_data/map/3map_user.csv")    
+            map_user(df_map_user_csv)
+            map_user_dist(df_map_user_csv)
         
     with  tab3:
         
@@ -485,8 +493,9 @@ elif select == "DATA EXPLORATION":
         
         if method_3 == "Top insurance":
             st.subheader("TOP INSURANCE")
-            df_ins_csv = pd.read_csv("phonepe_data/top/1top_insurance.csv")    
-            Top_insurance(df_ins_csv)    
+            df_top_ins_csv = pd.read_csv("phonepe_data/top/1top_insurance.csv")    
+            Top_insurance(df_top_ins_csv) 
+            top_ins_pin(df_top_ins_csv)    
                 
         elif method_3 == "Top trasaction":
             st.subheader("TOP TRANSACTION")
