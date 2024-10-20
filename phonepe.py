@@ -215,9 +215,9 @@ def map_user_dist(df_csv):
         musdag = musd.groupby("Districts")[["Appopens"]].sum()
         musdag.reset_index(inplace=True)
         fig_line_user_2 = px.line(data_frame = musdrg, x = "Districts", y ="Registered_users", title = "REGISTERD USERS")
-        st.plotly_chart(fig_line_2, theme=None, width=1000)
+        st.plotly_chart(fig_line_user_2, theme=None, use_container_width=True)
         fig_line_user_3 = px.line(data_frame = musdag, x = "Districts", y ="Appopens", title = "APP OPENS")
-        st.plotly_chart(fig_line_3, theme=None, width=1000)
+        st.plotly_chart(fig_line_user_3, theme=None, use_container_width=True)
 
 # TOP CHARTS
 def top_charts_amount(df_csv):
