@@ -232,9 +232,9 @@ def Top_insurance(df_csv):
         tityg_test = tityg 
         st.dataframe(tityg_test, use_container_width=True) 
         fig_amount_ins_top = px.bar(tityg_test, x = "States", y = "Transaction_amount", title = f"{years} TRANSACTION AMOUNT",color_discrete_sequence= px.colors.sequential.Aggrnyl)
-        st.plotly_chart(fig_amount_ins_top, theme=None, use_container_width=True, key="unique_plotly_chart")   
+        st.plotly_chart(fig_amount_ins_top, theme=None, use_container_width=True)   # key="unique_plotly_chart"
         fig_count_ins_top = px.bar(tityg_test, x = "States", y = "Transaction_count", title = f"{years} TRANSACTION COUNT")
-        st.plotly_chart(fig_count_ins_top, theme=None, use_container_width=True, key="plotly_chart_1")
+        st.plotly_chart(fig_count_ins_top, theme=None, use_container_width=True)  # key="plotly_chart_1"
             
         # Map visualisation 
         url = "https://gist.githubusercontent.com/jbrobst/56c13bbbf9d97d187fea01ca62ea5112/raw/e388c4cae20aa53cb5090210a42ebb9b765c0a36/india_states.geojson"    
