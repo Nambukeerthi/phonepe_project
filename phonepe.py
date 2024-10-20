@@ -299,9 +299,9 @@ def top_user(df_csv):
         tuy = df2[df2["Years"] == years ]
         tuy.drop(columns=['Unnamed: 0'], inplace=True)
         tuy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
-        tuyg = pd.DataFrame(tuy.groupby(["States","Quarter"])["Rergistered_users"].sum())
+        tuyg = pd.DataFrame(tuy.groupby(["States","Quarter"])["Registered_users"].sum())
         tuyg.reset_index(inplace=True)
-        fig_bar_top_user = px.bar(tuyg, x = "States", y = "Rergistered_users", color = "Quarter" ,color_discrete_sequence = px.colors.sequential.Burgyl, hover_name = "States")
+        fig_bar_top_user = px.bar(tuyg, x = "States", y = "Registered_users", color = "Quarter" ,color_discrete_sequence = px.colors.sequential.Burgyl, hover_name = "States")
         st.plotly_chart(fig_bar_top_user, theme=None, use_container_width=True)
 
         
