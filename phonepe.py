@@ -95,7 +95,7 @@ def transaction_type(df_csv):
 def user_type(df_csv):
         
         df1 = df_csv   
-        years = st.slider ("Select the year",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
+        years = st.slider ("Select the year of given",df1["Years"].min(), df1["Years"].max(), df1["Years"].min())
         aguy = df1[df1["Years"] == years ]
         # aguy.drop(columns=['Unnamed: 0'], inplace=True)
         aguy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
@@ -122,7 +122,7 @@ def user_states_type(df_csv):
 def map_insurance(df1_csv):
 
         df2 = df1_csv   
-        years = st.slider("Select the year", df2["Years"].min(), df2["Years"].max(), df2["Years"].min(), key="year_slider_1")
+        years = st.slider("Select the year of one ", df2["Years"].min(), df2["Years"].max(), df2["Years"].min(), key="year_slider_1")
         mity = df2[df2["Years"] == years ]
         mity.drop(columns=['Unnamed: 0'], inplace=True)
         mity.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
