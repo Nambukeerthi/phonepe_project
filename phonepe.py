@@ -212,7 +212,7 @@ def map_user_dist(df_csv):
         musd.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
         musdrg = musd.groupby("Districts")[["Registered_users"]].sum()
         musdrg.reset_index(inplace=True)
-        musdag = musd.groupby("Districts")[["Registered_users"]].sum()
+        musdag = musd.groupby("Districts")[["Appopens"]].sum()
         musdag.reset_index(inplace=True)
         fig_line_user_2 = px.line(data_frame = musdrg, x = "Districts", y ="Registered_users", title = "REGISTERD USERS")
         st.plotly_chart(fig_line_2, theme=None, use_container_width=True)
