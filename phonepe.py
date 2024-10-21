@@ -36,6 +36,7 @@ def transaction_func(df_csv):
         st.plotly_chart(fig_count, theme=None, use_container_width=True)
             
         # Map visualisation 
+        
         url = "https://gist.githubusercontent.com/jbrobst/56c13bbbf9d97d187fea01ca62ea5112/raw/e388c4cae20aa53cb5090210a42ebb9b765c0a36/india_states.geojson"    
         response= requests.get(url)   
         data1 = json.loads(response.content)    
@@ -137,6 +138,7 @@ def map_insurance(df_csv):
         st.plotly_chart(fig_count_ins, theme=None, use_container_width=True, key="plotly_chart_1")
             
         # Map visualisation 
+        
         url = "https://gist.githubusercontent.com/jbrobst/56c13bbbf9d97d187fea01ca62ea5112/raw/e388c4cae20aa53cb5090210a42ebb9b765c0a36/india_states.geojson"    
         response= requests.get(url)   
         data1 = json.loads(response.content)    
@@ -182,7 +184,7 @@ def map_insurance(df_csv):
 def map_ins_dist(df_csv):
 
         df2 = df_csv  
-        state = st.selectbox ("Select the State",df2["States"].unique(), key="state_selectbox_1")
+        state = st.selectbox("Select the State",df2["States"].unique(), key="state_selectbox_1")
         midy = df2[df2["States"] == state ]
         midy.reset_index(drop= True, inplace=True) #inplace- store the data in same variable
         midyg = midy.groupby("Districts")[["Transaction_count","Transaction_amount"]].sum()
@@ -314,7 +316,7 @@ def top_user(df_csv):
 def top_charts_amount(df_csv):
         
        st.subheader("TRANSACTION AMOUNT")
-       df_q1 = df_csv  # pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv") 
+       df_q1 = df_csv   
        group1 = df_q1.groupby("States")["Transaction_amount"].sum().reset_index()
        st.dataframe(group1, use_container_width=True)
         
@@ -335,7 +337,7 @@ def top_charts_amount(df_csv):
 def top_charts_count(df_csv): 
         
       st.subheader("TRANSACTION COUNT")
-      df_q1 = df_csv # pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv")
+      df_q1 = df_csv 
       group1 = df_q1.groupby("States")["Transaction_count"].sum().reset_index()
       st.dataframe(group1, use_container_width=True)
         
@@ -356,7 +358,7 @@ def top_charts_count(df_csv):
 def registerd_users(df_csv):
         
       st.subheader("REGISTERD USERS")  
-      df_q1 = df_csv # pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv")
+      df_q1 = df_csv 
       group1 = df_q1.groupby("States")["Registered_users"].sum().reset_index()
       st.dataframe(group1, use_container_width=True)
 
@@ -377,7 +379,7 @@ def registerd_users(df_csv):
 def app_opens(df_csv):
         
       st.subheader("APP OPENS") 
-      df_q1 = df_csv # pd.read_csv("phonepe_data/aggrecated/1aggrecated_insurance.csv")
+      df_q1 = df_csv 
       group1 = df_q1.groupby("States")["Appopens"].sum().reset_index()
       st.dataframe(group1, use_container_width=True)
 
