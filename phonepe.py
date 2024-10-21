@@ -563,7 +563,7 @@ elif select == "TOP CHARTS":
 
             elif questions ==    "7. Transaction Count of Aggregated User":
                                 df7_csv = pd.read_csv("phonepe_data/aggrecated/3aggrecated_user.csv") 
-                                top_charts_amount(df7_csv)
+                                # top_charts_amount(df7_csv)
                                 top_charts_count(df7_csv)
 
             elif questions ==    "8. Registered users of Map User":
