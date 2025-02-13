@@ -417,7 +417,7 @@ if select == "HOME":
         st.markdown(" ")
         st.markdown(" ")
         img1 = Image.open("images/phonepe3.jpg")
-        st.image( img1,use_column_width=True,channels="RGB" )
+        st.image( img1,use_container_width=True,channels="RGB" )
         st.markdown(" ")
         st.markdown(" ")
         st.markdown(" ")
@@ -439,7 +439,7 @@ if select == "HOME":
         st.markdown(" ")
         st.markdown(" ")
         img2 = Image.open("images/phonepe4.jpg")
-        st.image( img2,use_column_width=True,channels="RGB" )  
+        st.image( img2,use_container_width=True,channels="RGB" )  
         st.markdown(" ")
         st.markdown(" ")
         st.markdown(" ")
@@ -458,7 +458,16 @@ if select == "HOME":
                 st.write("****1. Direct Transfer & More**** ")
                 st.write("****2. QR Code**** ")
                 st.write("****Earn Great Rewards**** ")
-               
+
+        st.markdown(" ")
+        st.markdown(" ")
+        st.markdown(" ")
+        st.markdown(" ")
+
+        st.markdown("[PROJECT GITHUB PAGE](https://github.com/Nambukeerthi/phonepe_project/)")
+
+
+
 elif select == "DATA EXPLORATION":
     
     tab1, tab2, tab3 = st.tabs(["Aggrecated Analysis","Map Analysis","Top Analysis"])
