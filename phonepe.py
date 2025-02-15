@@ -17,7 +17,6 @@ st.set_page_config(
 
 
 # DATA EXPLORATION
-# aggre
 def transaction_func(df_csv):
         
         df1 = df_csv   
