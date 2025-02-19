@@ -42,7 +42,8 @@ pip install -r requirements.txt
     After installing the required libraries one need to import them in the program before one can use them.
 ```
 import streamlit as st
-import mysql.connector as sql
+from PIL import Image
+import numpy as np
 from streamlit_option_menu import option_menu
 import pandas as pd
 import plotly.express as px
@@ -51,12 +52,16 @@ import json
 
 ```
    
-2. Now one need setup a Google Cloud Project on Google Cloud Console, and then enable the Youtube API v3, after that generate the credentials and copy the api_key. Now below is the Python code to use that API.
+2. Now one need to clone the GitHub Repository to fetch the data from the Phonepe pulse GitHub repository.
 ```
-youtube = build('youtube', 'v3', developerKey="your api_key goes here")
+from git.repo.base import Repo
+Repo.clone_from("Github Repository URL that need to be cloned", "Local URL where one need to clone there data")
+
 ```
 
-3. After that one need to create a MySQL Database in there local system. Now below is the Python code to connect to that SQL Database
+3. Data Tranformation - JSON to Pandas DataFrame. After the Data Extraction part is completed one need to transform the data. The data that was extracted from the Phonepe Pulse Repository is in form of .json file, now we need to transform that data into Pandas DataFrame for visualisatiopn and etc.
+
+4. After that one need to create a MySQL Database in there local system. Now below is the Python code to connect to that SQL Database.
 ```
 hostname = "your host name goes here"
 database = "your database name goes here"
@@ -68,9 +73,9 @@ mydb = sql.connect(host=hostname, user=username, password=pwd, database=database
 cursor1 = mydb.cursor()
 ```
 
-4. To run the application
+5. The last process is create the streamlit application and it by using the below comment. 
 ```
-streamlit run main.py
+streamlit run phonpe.py
 ```
 
    
