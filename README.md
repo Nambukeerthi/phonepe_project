@@ -3,7 +3,7 @@
 
 <h1 align="center">
   <br>
-  <a href=""><img src="youtube_project.jpeg" alt="Phonepe Pulse Data Visualization" width="200"></a>
+  <a href=""><img src="images/phonepe2.png" alt="Phonepe Pulse Data Visualization" width="200"></a>
   <br>
  
   <br>
@@ -15,7 +15,7 @@
   <a href="#Technologies Applied">Download</a> •  
 </p>
 
-Video Link: [Linked-IN Video](https://www.linkedin.com/posts/keerthi-r-9b8839283_project-name-youtube-data-harvesting-and-activity-7296598343412068352-lwgY?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEUARVwBltI0ri4ApeK7YzcbHxGViaHfWEM)
+Video Link: [Linked-IN Video](https://www.linkedin.com/posts/keerthi-r-9b8839283_project-name-phonepe-pulse-data-visualization-activity-7296601209677787136-LPuf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEUARVwBltI0ri4ApeK7YzcbHxGViaHfWEM)
 
 Portfolio: [Nambu Keerthi](https://portfolio-b5zieg8xn5nhwau5b4bhp8.streamlit.app/)
 
@@ -25,20 +25,32 @@ The purpose of this project is to create an intuitive Streamlit app that pulls d
 
 
 ## Technologies Applied
-* virtual environment (.venv)
 * python
 * streamlit 
-* Youtube Api 
-* AWS RDS Database
-* MySQL
+* Plotly 
+* Pandas
+* Numpy
+* json
+* OS
 
 
 ## Project Setup
-1. Firstly install all the required extensions in the requirements.txt
+1. Firstly install all the required extensions/libraries/modules in the requirements.txt
 ```
 pip install -r requirements.txt
 ```
+   After installing the required libraries one need to import them in the program before one can use them.
+```
+import streamlit as st
+import mysql.connector as sql
+from streamlit_option_menu import option_menu
+import pandas as pd
+import plotly.express as px
+import os
+import json
 
+```
+   
 2. Now one need setup a Google Cloud Project on Google Cloud Console, and then enable the Youtube API v3, after that generate the credentials and copy the api_key. Now below is the Python code to use that API.
 ```
 youtube = build('youtube', 'v3', developerKey="your api_key goes here")
