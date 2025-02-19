@@ -22,14 +22,13 @@ Portfolio: [Nambu Keerthi](https://portfolio-b5zieg8xn5nhwau5b4bhp8.streamlit.ap
 In this streamlit app users will be able to access the dashboard from a web browser and easily navigate the different visualizations and facts and figures displayed. The dashboard will provide valuable insights and information about the data in the Phonepe pulse Github repository, making it a valuable tool for data analysis and decision-making.
 
 
-
 ## Technologies Applied
-* python
-* streamlit 
+* Python
+* Streamlit 
 * Plotly 
 * Pandas
 * Numpy
-* json
+* Json
 * OS
 
 
