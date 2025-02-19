@@ -39,7 +39,7 @@ The purpose of this project is to create an intuitive Streamlit app that pulls d
 ```
 pip install -r requirements.txt
 ```
-   After installing the required libraries one need to import them in the program before one can use them.
+    After installing the required libraries one need to import them in the program before one can use them.
 ```
 import streamlit as st
 import mysql.connector as sql
