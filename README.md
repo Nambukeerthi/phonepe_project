@@ -76,17 +76,3 @@ cursor1 = mydb.cursor()
 ```
 streamlit run phonpe.py
 ```
-
-   
-## Project Methodology
-
-1. First click the "Create DB" button after that the database will created
-
-2. Enter a YouTube channel ID in the input field and click the "Details" button. The channel details will then be displayed. After that, click the "Upload" button to upload channel details such as Channel ID, Channel Name, Playlist ID, Subscribers, Views, Total Videos, 
-   Description, and more, to the SQL database.
-
-3. Now from the sidebar select the Task Menu and Select the required statement.
-
-3. According to the selected statement the data will be queried from the SQL Database and will be displayed here on the screen in the streamlit application
-
-4. through the click the "Drob DB" button the created database and details will droped.
