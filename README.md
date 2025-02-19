@@ -10,8 +10,8 @@
 
 
 <p align="center">
-  <a href="#Introduction"></a> •
-  <a href="#Technologies Applied"></a> •  
+  <a href="#Introduction"></a> 
+  <a href="#Technologies Applied"></a> 
 </p>
 
 Video Link: [Linked-IN Video](https://www.linkedin.com/posts/keerthi-r-9b8839283_project-name-phonepe-pulse-data-visualization-activity-7296601209677787136-LPuf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEUARVwBltI0ri4ApeK7YzcbHxGViaHfWEM)
