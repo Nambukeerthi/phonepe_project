@@ -4,7 +4,7 @@
 <h1 align="center">
   <br>
   <h1  align="center">
-  <a href=""><img src="images/phonepe4.png" alt="" width="400"></a>
+  <a href=""><img src="images/phonepe4.jpg" alt="" width="400"></a>
     
   <h2  align="center">
   Link: https://phonepeproject-np7vzyrwmrqn9jhyn94teg.streamlit.app/
