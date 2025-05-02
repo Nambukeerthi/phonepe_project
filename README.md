@@ -3,11 +3,12 @@
 
 <h1 align="center">
   <br>
-  <h2  align="center">
-    https://phonepeproject-np7vzyrwmrqn9jhyn94teg.streamlit.app/
-  </h2>
   <h1  align="center">
-  <a href=""><img src="images/phonepe2.png" alt="Phonepe Pulse Data Visualization" width="200"></a>
+  <a href=""><img src="images/phonepe4.png" alt="" width="400"></a>
+    
+  <h2  align="center">
+  Link: https://phonepeproject-np7vzyrwmrqn9jhyn94teg.streamlit.app/
+  </h2> 
   <br>
   <br>
 </h1>
