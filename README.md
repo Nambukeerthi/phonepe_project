@@ -6,6 +6,7 @@
   <h2  align="center">
     https://phonepeproject-np7vzyrwmrqn9jhyn94teg.streamlit.app/
   </h2>
+  <h1  align="center">
   <a href=""><img src="images/phonepe2.png" alt="Phonepe Pulse Data Visualization" width="200"></a>
   <br>
   <br>
